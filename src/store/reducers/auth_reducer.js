@@ -10,7 +10,7 @@ const AuthReducer = (state = initialState, action) => {
             console.log('LOGIN SUCCESS')
             return {
                 ...state,
-                is_authenticated: true
+                is_authenticated: true,
             }
         case ACTION_TYPES.LOGIN_FAILURE:
             console.log('LOGIN FAILURE')

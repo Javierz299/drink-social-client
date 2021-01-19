@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const UnAuthRedirect = () => {
     return (
@@ -8,4 +8,4 @@ const UnAuthRedirect = () => {
     )
 }
 
-export default UnAuthRedirect
+export default UnAuthRedirect;
