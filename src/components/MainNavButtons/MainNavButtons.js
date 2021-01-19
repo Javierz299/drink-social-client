@@ -1,15 +1,12 @@
 import React from 'react';
-import Auth from '../../utils/auth';
-
-const auth = new Auth();
-
-const MainNavButtons = () => {
+import { Link } from 'react-router-dom';
+const MainNavButtons = (props) => {
     
-
 
     return (
         <div>
-            <button onClick={() => auth.login()} >Log In</button>
+            <button onClick={() => props.auth.login()} >Log In</button>
+            <Link to="/privateroute">Private Route</Link>
         </div>
     )
 }

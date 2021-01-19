@@ -1,4 +1,6 @@
 import auth0 from 'auth0-js';
+import history from '../utils/history';
+
 
 class Auth {
     auth0 = new auth0.WebAuth({
@@ -21,6 +23,10 @@ class Auth {
 
                 let expiresAt = JSON.stringify(authResult.expiresIn * 2000 + new Date().getTime());
                 localStorage.setItem('expiresAt',expiresAt);
+
+                setTimeout(() => {
+                    history.replace('/authcheck')
+                }, 200);
             } else {
                 console.log("handleAuth Err",err);
             }
@@ -31,6 +37,11 @@ class Auth {
         localStorage.removeItem('access_token');
         localStorage.removeItem('id_token');
         localStorage.removeItem('expiresAt');
+    };
+
+    isAuthenticated = () => {
+        let expiresAt = JSON.parse(localStorage.getItem('expiresAt'));
+        return new Date().getTime() < expiresAt;
     };
 
 

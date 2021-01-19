@@ -6,9 +6,9 @@ const Header = () => {
             <div>
                 Drink Social
             </div>
-            <Fragment>
+            {/* <Fragment>
                 <MainNavButtons />
-            </Fragment>
+            </Fragment> */}
           
         </header>
     )
