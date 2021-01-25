@@ -6,10 +6,6 @@ const Header = () => {
             <div>
                 Drink Social
             </div>
-            {/* <Fragment>
-                <MainNavButtons />
-            </Fragment> */}
-          
         </header>
     )
 }

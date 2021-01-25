@@ -1,34 +1,18 @@
 import React, { Component, useEffect } from 'react';
 import { connect } from 'react-redux';
 import history from './history';
-import { useSelector, useDispatch } from 'react-redux';
 import * as ACTIONS from '../store/actions/actions'
 
 class Auth_Check extends Component {
-    // const state = useSelector(state => state.auth_reducer.is_authenticated)
-    // const stateTwo = useSelector(state => state.auth_reducer.is_working)
-    // const dispatch = useDispatch();
-
-
-    // useEffect(() => {
-    //     console.log('props from auth check',props.auth)
-    //    if(props.auth.isAuthenticated){
-    //     dispatch({type: 'LOGIN_SUCCESS'});
-    //     history.replace('/');
-       
-    //    } else {
-    //        console.log('AUTH FAILURE')
-    //        dispatch({type: 'LOGIN_FAILURE'});
-    //    }
-
-    // }, [])
 
     componentDidMount(){
         if(this.props.auth.isAuthenticated){
             this.props.login_success();
+            this.props.add_profile(this.props.auth.userProfile);
             history.replace('/');
         } else {
             this.props.login_failure();
+            this.props.remove_profile();
             history.replace('/')
         }
     }
@@ -52,7 +36,8 @@ function mapDispatchToProps(dispatch){
     return {
         login_success: () => dispatch(ACTIONS.login_success()),
         login_failure: () => dispatch(ACTIONS.login_failure()),
-
+        add_profile: (profile) => dispatch(ACTIONS.add_profile(profile)),
+        remove_profile: () => dispatch(ACTIONS.remove_profile())
     }
 }
 
