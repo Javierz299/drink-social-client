@@ -72,6 +72,14 @@ class Auth {
         return new Date().getTime() < expiresAt;
     };
 
+    // '/callback route => accesstoken after logging in
+     handleAuthentication = (props) => {
+        console.log('props from public routes',props);
+        if(props.location.hash){
+            this.handleAuth();
+        }
+    };
+
 
 };
 

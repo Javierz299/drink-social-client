@@ -7,9 +7,7 @@ const MainNavButtons = (props) => {
     const dispatch = useDispatch()
 
     const log_out = () => {
-        //clear local storage when logging out
         props.auth.logout();
-        //dispatch is_authenticated back to false
         dispatch({type: "LOG_OUT"});
     }
 
