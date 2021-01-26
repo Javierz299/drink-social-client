@@ -7,7 +7,7 @@ import AuthCheck from '../../../utils/Auth_Check';
 import Auth from '../../../utils/auth';
 import UnAuthRedirect from '../../../utils/UnAuthRedirect';
 import PrivateRoute from '../PrivateRoute';
-import ProtectedRoute from '../../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from '../../Profile/Profile';
 
 import { useDispatch, useSelector } from 'react-redux';
 
