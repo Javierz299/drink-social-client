@@ -1,6 +1,5 @@
 import auth0 from 'auth0-js';
 import history from '../utils/history';
-import { useDispatch } from 'react-redux'
 
 class Auth {
     auth0 = new auth0.WebAuth({
@@ -32,11 +31,11 @@ class Auth {
             this.auth0.client.userInfo(accessToken, (err, profile) => {
                 if(profile) {
                     console.log("PROFILE")
-                    this.userProfile = { profile }
+                    this.userProfile = profile;
                 }
             })
         }
-    }
+    };
 
     handleAuth = () => {
         this.auth0.parseHash((err,authResult) => {
@@ -49,10 +48,10 @@ class Auth {
                 localStorage.setItem('expiresAt',expiresAt);
 
                 this.getProfile();
-
+                //loading after logging in correctly
                 setTimeout(() => {
                     history.replace('/authcheck')
-                }, 2000);
+                }, 1000);
             } else {
                 console.log("handleAuth Err",err);
             }

@@ -9,25 +9,29 @@ import UnAuthRedirect from '../../../utils/UnAuthRedirect';
 import PrivateRoute from '../PrivateRoute';
 import ProtectedRoute from '../../ProtectedRoute/ProtectedRoute';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const auth = new Auth();
 
 const PublicRoutes = () => {
+    //const profile = useSelector(profile => profile)
     const dispatch = useDispatch();
 
+    // silent authentication, every route
     useEffect(() => {
             if(auth.isAuthenticated()){
                 dispatch({type: "LOGIN_SUCCESS"});
-                //this.props.login_success();
-                dispatch({type: "ADD_PROFILE", payload: auth.userProfile});
-                //this.props.add_profile(this.props.auth.userProfile);
+                // redux takes some time to update state
+                // and dispatch is called imeditally so we need a small delay
+                auth.getProfile();
+                setTimeout(() => {
+                    dispatch({type: "ADD_PROFILE", payload: auth.userProfile});
+                }, 1000);
             } else {
                 dispatch({type: "LOGIN_FAILURE"});
-                //this.props.login_failure();
-                //this.props.remove_profile();
                 dispatch({type: "REMOVE_PROFILE"});
             }
+
     }, []);
 
     return (
