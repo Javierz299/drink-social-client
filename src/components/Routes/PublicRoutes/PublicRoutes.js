@@ -17,7 +17,8 @@ const PublicRoutes = () => {
     //const profile = useSelector(profile => profile)
     const dispatch = useDispatch();
 
-    // silent authentication, every route
+    // silent authentication, runs every route change
+    // also keeps logged out button as "log out" on refresh
     useEffect(() => {
             if(auth.isAuthenticated()){
                 dispatch({type: "LOGIN_SUCCESS"});

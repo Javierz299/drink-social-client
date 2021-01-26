@@ -10,7 +10,7 @@ class Auth {
         scope: 'openid profile email'
     });
 
-    userProfile = {};
+    userProfile = null;
 
     login = () => {
         this.auth0.authorize();
