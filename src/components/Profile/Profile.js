@@ -1,7 +1,6 @@
 import React from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector } from 'react-redux';
-import MainNavButtons from '../MainNavButtons/MainNavButtons'
 
 import './profile.css';
 
@@ -10,7 +9,6 @@ const ProtectedRoute = () => {
     
     return (
         <div id="profile-container" >
-            <MainNavButtons />
             {/*add different spinner for authcallback */
             !profile ? <AuthCallBack /> :
             <div className="profile-container-description" >

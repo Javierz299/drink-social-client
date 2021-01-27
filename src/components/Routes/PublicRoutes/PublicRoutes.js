@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { Router, Route, Switch } from 'react-router';
-import history from '../../../utils/history';
+import { Route, Switch } from 'react-router';
 import MainNavButtons from '../../MainNavButtons/MainNavButtons';
 import AuthCallBack from '../../AuthCallBack/AuthCallBack';
 import AuthCheck from '../../../utils/Auth_Check';
@@ -8,6 +7,7 @@ import Auth from '../../../utils/auth';
 import UnAuthRedirect from '../../../utils/UnAuthRedirect';
 import PrivateRoute from '../PrivateRoute';
 import ProtectedRoute from '../../Profile/Profile';
+import WelcomePage from '../../WelcomPage/WelcomePage';
 
 import { useDispatch } from 'react-redux';
 
@@ -37,8 +37,11 @@ const PublicRoutes = () => {
 
     return (
         <div>
+            <MainNavButtons auth={auth} />
                 <Switch>
-                    <Route exact path="/" render={() => <MainNavButtons auth={auth} /> } />
+                    {/*<Route exact path="/" render={() => <MainNavButtons auth={auth} /> } /> */}
+                    <Route exact path="/" component={WelcomePage}/>
+
                     <Route path="/redirect" component={UnAuthRedirect} />
                     <Route path="/callback" render={(props) => {auth.handleAuthentication(props); return <AuthCallBack props={props} />}} />
                     <Route path="/authcheck" render={() => <AuthCheck auth={auth} />} />

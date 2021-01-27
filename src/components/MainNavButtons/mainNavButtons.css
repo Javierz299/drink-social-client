@@ -1,4 +1,43 @@
 #main-nav-buttons{
+    border: 1px solid blue;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#main-nav-container{
+    position: relative;
+}
+
+.main-nav-menu{
+    display: none;
+}
+
+@media only screen and (max-width: 600px){
+    #main-nav-buttons{
+        display: none;
+    }
+    .main-nav-menu{
+        padding: 5px;
+        display: block;
+        align-content: end;
+        width: 50px;
+        border: 1px solid red;
+        
+    }
+    .main-nav-hide{
+        display: none;
+    }
+    .main-nav-show{
+        padding: 5px;
+        position: absolute;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 50%;
+        height: 100%;
+    }
+    .main-nav-show > span{
+        padding: 5px;
+        border: 1px solid blue;
+    }
 }
