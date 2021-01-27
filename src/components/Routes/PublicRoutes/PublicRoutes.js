@@ -9,7 +9,7 @@ import UnAuthRedirect from '../../../utils/UnAuthRedirect';
 import PrivateRoute from '../PrivateRoute';
 import ProtectedRoute from '../../Profile/Profile';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const auth = new Auth();
 
@@ -37,16 +37,14 @@ const PublicRoutes = () => {
 
     return (
         <div>
-            <Router history={history}>
                 <Switch>
                     <Route exact path="/" render={() => <MainNavButtons auth={auth} /> } />
                     <Route path="/redirect" component={UnAuthRedirect} />
                     <Route path="/callback" render={(props) => {auth.handleAuthentication(props); return <AuthCallBack props={props} />}} />
                     <Route path="/authcheck" render={() => <AuthCheck auth={auth} />} />
-
-                    <PrivateRoute path="/privateroute" component={ProtectedRoute} auth={auth}/>
+                
+                    <PrivateRoute path="/profile" component={ProtectedRoute} auth={auth}/>
                 </Switch>
-            </Router>
         </div>
     )
 }

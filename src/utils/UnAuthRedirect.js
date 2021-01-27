@@ -6,6 +6,6 @@ const UnAuthRedirect = () => {
             Not Authorized Redirect
         </div>
     )
-}
+};
 
 export default UnAuthRedirect;

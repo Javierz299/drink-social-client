@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
+
+import './mainNavButtons.css';
+
 const MainNavButtons = (props) => {
     const state = useSelector(state => state.auth_reducer.is_authenticated)
     console.log("AUTH",props.auth)
@@ -12,12 +15,15 @@ const MainNavButtons = (props) => {
     }
 
     return (
-        <div>
+        <div id="main-nav-buttons">
+           
+            <span><Link to="/">Home</Link></span>
+            <span><Link to="/stats">Stats</Link></span>
+            <span><Link to="/profile">Profile</Link></span>
             {state ? 
-            <button onClick={() => log_out()} >Log Out</button> :
-            <button onClick={() => props.auth.login()} >Log In</button>
+            <span onClick={() => log_out()} >Log Out</span> :
+            <span onClick={() => props.auth.login()} >Log In</span>
             }
-            <Link to="/privateroute">Private Route</Link>
         </div>
     )
 }

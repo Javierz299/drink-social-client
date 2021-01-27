@@ -1,0 +1,11 @@
+#profile-container {
+    border: 1px solid black;
+}
+
+.profile-container-description{
+    border: 1px solid blue;
+}
+
+.profile-container-description > img{
+    border-radius: 50%;
+}
