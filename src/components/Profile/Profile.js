@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector } from 'react-redux';
 
 import './profile.css';
 
+import axios from 'axios';
+import config from '../../config';
+
 const ProtectedRoute = () => {
-    const profile = useSelector(profile => profile.auth_reducer.profile)
+    const profile = useSelector(profile => profile.auth_reducer.profile);
+
+    useEffect(() => {
+        //if name includes @ get substring
+        const newProfile = {};
+        if(!profile){
+           return console.log("NO PROFILE YET")
+        } else {
+            console.log('PROFILE READY')
+            let tempName = profile.name.substring(0,profile.name.indexOf("@"));
+            newProfile.name = tempName || profile.name;
+            newProfile.email =profile.email;
+        }
+        axios.post(`${config.API_ENDPOINT}/post/userprofile`,newProfile)
+            .then(res => console.log('RESPONSE',res));
+        
+    }, [profile])
     
     return (
         <div id="profile-container" >
@@ -13,8 +32,10 @@ const ProtectedRoute = () => {
             !profile ? <AuthCallBack /> :
             <div className="profile-container-description" >
                 <img src={profile.picture} alt="pic" />
-                <h3>{profile.name}</h3>
-                {/* <h4>{profile.email.substring(0,profile.email.indexOf("@"))}</h4> */}
+                <h3>{
+                profile.name.substring(0,profile.name.indexOf("@")) ||
+                profile.name
+                }</h3>
                 
                    {console.log("profile",profile)}
             </div>
@@ -27,4 +48,4 @@ const ProtectedRoute = () => {
     )
 }
 
-export default ProtectedRoute
+export default ProtectedRoute;
