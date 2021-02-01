@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector } from 'react-redux';
-
+import BeerForms from '../Forms/Beer/BeerForm';
 import './profile.css';
 
 import axios from 'axios';
@@ -30,7 +30,7 @@ const ProtectedRoute = () => {
             {/*add different spinner for loading profile currently set as authcallback */
             !profile ? <AuthCallBack /> :
             <div className="profile-container-description" >
-                <img src={profile.picture} alt="pic" />
+                <img onClick={() => console.log("show total number of drinks")} src={profile.picture} alt="pic" />
                 <h3>{
                 profile.name.substring(0,profile.name.indexOf("@")) ||
                 profile.name
@@ -40,8 +40,8 @@ const ProtectedRoute = () => {
             </div>
             }
             {/* details of drinks*/}
-            {/* forms for drinks, aiming for carousol*/}
-
+            
+            <BeerForms />
             
         </div>
     )
