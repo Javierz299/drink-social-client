@@ -27,7 +27,8 @@ const BeerForms = () => {
                     <Card>
                         <div 
                         onClick={() => console.log("clicked one")}
-                        className="card">1</div>
+                        className="card">1
+                        </div>
                     </Card>
                     <Card><div 
                         onClick={() => console.log("clicked two")}
