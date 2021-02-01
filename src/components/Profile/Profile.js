@@ -11,7 +11,6 @@ const ProtectedRoute = () => {
     const profile = useSelector(profile => profile.auth_reducer.profile);
 
     useEffect(() => {
-        //if name includes @ get substring
         const newProfile = {};
         if(!profile){
            return console.log("NO PROFILE YET")
@@ -28,7 +27,7 @@ const ProtectedRoute = () => {
     
     return (
         <div id="profile-container" >
-            {/*add different spinner for authcallback */
+            {/*add different spinner for loading profile currently set as authcallback */
             !profile ? <AuthCallBack /> :
             <div className="profile-container-description" >
                 <img src={profile.picture} alt="pic" />

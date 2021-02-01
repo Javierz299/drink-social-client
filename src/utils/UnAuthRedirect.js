@@ -3,7 +3,7 @@ import React from 'react';
 const UnAuthRedirect = () => {
     return (
         <div>
-            Not Authorized Redirect
+            If you're seeing this. Log back In/Sign Up.
         </div>
     )
 };
