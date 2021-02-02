@@ -1,13 +1,13 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
-import beer from '../../../FormPicutres/beer.png'
-import craft from '../../../FormPicutres/craft.png'
-import selzter from '../../../FormPicutres/seltzer.png'
+import redwine from '../../../FormPicutres/redwine.png'
+import whitewine from '../../../FormPicutres/whitewine.png'
+import sangria from '../../../FormPicutres/sangria.jpeg'
 
 import { Card } from 'react-bootstrap';
 
-const BeerForms = () => {
+const WineForms = () => {
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -21,10 +21,10 @@ const BeerForms = () => {
             <div className="carousel-container">
                 <Carousel breakPoints={breakPoints}>
                     <div>
-                    <h3>beer</h3>
+                    <h3>red wine</h3>
                     <Card>        
                         <img 
-                        src={beer} alt="beer"
+                        src={redwine} alt="red wine"
                         onClick={() => console.log("clicked beer")}
                         className="card" 
                         />
@@ -32,10 +32,10 @@ const BeerForms = () => {
                     </div>
 
                     <div>
-                    <h3>craft</h3>
+                    <h3>white wine</h3>
                     <Card>        
                         <img 
-                        src={craft} alt="craft"
+                        src={whitewine} alt="white wine"
                         onClick={() => console.log("clicked craft")}
                         className="card" 
                         />
@@ -43,10 +43,10 @@ const BeerForms = () => {
                     </div>
                     <div>
 
-                    <h3>seltzer</h3>
+                    <h3>sangria</h3>
                     <Card>        
                         <img 
-                        src={selzter} alt="seltzer"
+                        src={sangria} alt="sangria"
                         onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
@@ -57,4 +57,4 @@ const BeerForms = () => {
         )
 }
 
-export default BeerForms;
+export default WineForms;

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector } from 'react-redux';
 import BeerForms from '../Forms/Beer/BeerForm';
+import WineForms from '../Forms/Wine/WineForm';
+import LiquorForms from '../Forms/Liquor/LiquorForm';
 import './profile.css';
 
 import axios from 'axios';
@@ -40,9 +42,12 @@ const ProtectedRoute = () => {
             </div>
             }
             {/* details of drinks*/}
-            
+   
             <BeerForms />
-            
+            <br/>
+            <WineForms />
+            <br/>
+            <LiquorForms />
         </div>
     )
 }

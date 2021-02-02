@@ -1,13 +1,13 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
-import beer from '../../../FormPicutres/beer.png'
-import craft from '../../../FormPicutres/craft.png'
-import selzter from '../../../FormPicutres/seltzer.png'
+import tequila from '../../../FormPicutres/tequila.jpeg'
+import vodka from '../../../FormPicutres/vodka.png'
+import whiskey from '../../../FormPicutres/whiskey.png'
 
 import { Card } from 'react-bootstrap';
 
-const BeerForms = () => {
+const LiquorForms = () => {
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -21,33 +21,33 @@ const BeerForms = () => {
             <div className="carousel-container">
                 <Carousel breakPoints={breakPoints}>
                     <div>
-                    <h3>beer</h3>
+                    <h3>tequila shot</h3>
                     <Card>        
                         <img 
-                        src={beer} alt="beer"
-                        onClick={() => console.log("clicked beer")}
+                        src={tequila} alt="tequila"
+                        onClick={() => console.log("clicked tequila")}
                         className="card" 
                         />
                     </Card>
                     </div>
 
                     <div>
-                    <h3>craft</h3>
+                    <h3>vodka shot</h3>
                     <Card>        
                         <img 
-                        src={craft} alt="craft"
-                        onClick={() => console.log("clicked craft")}
+                        src={vodka} alt="vodka"
+                        onClick={() => console.log("clicked vodka")}
                         className="card" 
                         />
                     </Card>
                     </div>
                     <div>
 
-                    <h3>seltzer</h3>
+                    <h3>whiskey shot</h3>
                     <Card>        
                         <img 
-                        src={selzter} alt="seltzer"
-                        onClick={() => console.log("clicked seltzer")}
+                        src={whiskey} alt="whiskey"
+                        onClick={() => console.log("clicked whiskey")}
                         className="card" 
                         />
                     </Card>
@@ -57,4 +57,4 @@ const BeerForms = () => {
         )
 }
 
-export default BeerForms;
+export default LiquorForms;
