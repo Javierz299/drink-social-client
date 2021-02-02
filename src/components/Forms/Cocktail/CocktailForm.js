@@ -1,19 +1,14 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
-import beer from '../../../FormPicutres/beer.png'
-import craft from '../../../FormPicutres/craft.png'
-import selzter from '../../../FormPicutres/seltzer.png'
-import smirnoff from '../../../FormPicutres/smirnoffice.jpeg'
-import six from '../../../FormPicutres/six.jpg'
-import seven from '../../../FormPicutres/seven.jpg'
-import eight from '../../../FormPicutres/eight.jpg'
-import nine from '../../../FormPicutres/nine.jpg'
-import ten from '../../../FormPicutres/ten.jpg'
+import redwine from '../../../FormPicutres/redwine.png'
+import whitewine from '../../../FormPicutres/whitewine.png'
+import sangria from '../../../FormPicutres/sangria.jpeg'
+import champagne from '../../../FormPicutres/champagne.png'
 
 import { Card } from 'react-bootstrap';
 
-const BeerForms = () => {
+const CocktailForms = () => {
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -23,16 +18,14 @@ const BeerForms = () => {
    ]
    //pagination={false} to carousel to remove dots. 
    //And showArrows={false}
-
-   ///add 40oz and 24 oz and 16oz
         return (
             <div className="carousel-container">
                 <Carousel breakPoints={breakPoints}>
                     <div>
-                    <h3>beer</h3>
+                    <h3>margarita</h3>
                     <Card>        
                         <img 
-                        src={beer} alt="beer"
+                        src={redwine} alt="red wine"
                         onClick={() => console.log("clicked beer")}
                         className="card" 
                         />
@@ -40,10 +33,10 @@ const BeerForms = () => {
                     </div>
 
                     <div>
-                    <h3>craft</h3>
+                    <h3>bloody mary</h3>
                     <Card>        
                         <img 
-                        src={craft} alt="craft"
+                        src={whitewine} alt="white wine"
                         onClick={() => console.log("clicked craft")}
                         className="card" 
                         />
@@ -51,10 +44,10 @@ const BeerForms = () => {
                     </div>
 
                     <div>
-                    <h3>seltzer</h3>
+                    <h3>mimosa</h3>
                     <Card>        
                         <img 
-                        src={selzter} alt="seltzer"
+                        src={sangria} alt="sangria"
                         onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
@@ -62,66 +55,88 @@ const BeerForms = () => {
                     </div>
 
                     <div>
-                    <h3>smirnoff ice</h3>
+                    <h3>martini</h3>
                     <Card>        
                         <img 
-                        src={smirnoff} alt="seltzer"
-                        onClick={() => console.log("clicked icer")}
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
                     </Card>
                     </div>
 
                     <div>
-                    <h3>6 percent</h3>
+                    <h3>mojito</h3>
                     <Card>        
                         <img 
-                        src={six} alt="seltzer"
-                        onClick={() => console.log("clicked icer")}
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
                     </Card>
                     </div>
 
                     <div>
-                    <h3>7 percent</h3>
+                    <h3>ginn tonic</h3>
                     <Card>        
                         <img 
-                        src={seven} alt="seltzer"
-                        onClick={() => console.log("clicked icer")}
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
                     </Card>
                     </div>
 
                     <div>
-                    <h3>8 percent</h3>
+                    <h3>moscow mule</h3>
                     <Card>        
                         <img 
-                        src={eight} alt="seltzer"
-                        onClick={() => console.log("clicked icer")}
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
                     </Card>
                     </div>
 
                     <div>
-                    <h3>9 percent</h3>
+                    <h3>paloma</h3>
                     <Card>        
                         <img 
-                        src={nine} alt="seltzer"
-                        onClick={() => console.log("clicked icer")}
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
                     </Card>
                     </div>
 
                     <div>
-                    <h3>10+ percent</h3>
+                    <h3>daiquiri</h3>
                     <Card>        
                         <img 
-                        src={ten} alt="seltzer"
-                        onClick={() => console.log("clicked icer")}
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
+                        className="card" 
+                        />
+                    </Card>
+                    </div>
+
+                    <div>
+                    <h3>long island</h3>
+                    <Card>        
+                        <img 
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
+                        className="card" 
+                        />
+                    </Card>
+                    </div>
+
+                    <div>
+                    <h3>misc cocktail</h3>
+                    <Card>        
+                        <img 
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
                         className="card" 
                         />
                     </Card>
@@ -131,4 +146,4 @@ const BeerForms = () => {
         )
 }
 
-export default BeerForms;
+export default CocktailForms;

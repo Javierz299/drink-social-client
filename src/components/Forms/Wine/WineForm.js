@@ -4,6 +4,7 @@ import Carousel from 'react-elastic-carousel';
 import redwine from '../../../FormPicutres/redwine.png'
 import whitewine from '../../../FormPicutres/whitewine.png'
 import sangria from '../../../FormPicutres/sangria.jpeg'
+import champagne from '../../../FormPicutres/champagne.png'
 
 import { Card } from 'react-bootstrap';
 
@@ -41,8 +42,8 @@ const WineForms = () => {
                         />
                     </Card>
                     </div>
-                    <div>
 
+                    <div>
                     <h3>sangria</h3>
                     <Card>        
                         <img 
@@ -52,6 +53,18 @@ const WineForms = () => {
                         />
                     </Card>
                     </div>
+
+                    <div>
+                    <h3>champagne</h3>
+                    <Card>        
+                        <img 
+                        src={champagne} alt="sangria"
+                        onClick={() => console.log("clicked seltzer")}
+                        className="card" 
+                        />
+                    </Card>
+                    </div>
+
                 </Carousel>
             </div>
         )

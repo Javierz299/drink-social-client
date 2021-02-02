@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import BeerForms from '../Forms/Beer/BeerForm';
 import WineForms from '../Forms/Wine/WineForm';
 import LiquorForms from '../Forms/Liquor/LiquorForm';
+import CocktailForms from '../Forms/Cocktail/CocktailForm';
 import './profile.css';
 
 import axios from 'axios';
@@ -44,6 +45,8 @@ const ProtectedRoute = () => {
             {/* details of drinks*/}
    
             <BeerForms />
+            <br/>
+            <CocktailForms />
             <br/>
             <WineForms />
             <br/>
