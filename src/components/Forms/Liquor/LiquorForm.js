@@ -1,9 +1,9 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
-import tequila from '../../../FormPicutres/tequila.jpeg'
-import vodka from '../../../FormPicutres/vodka.png'
-import whiskey from '../../../FormPicutres/whiskey.png'
+import tequila from '../../../FormPicutres/liquorpics/tequila.jpeg'
+import vodka from '../../../FormPicutres/liquorpics/vodka.png'
+import whiskey from '../../../FormPicutres/liquorpics/whiskey.png'
 
 import { Card } from 'react-bootstrap';
 

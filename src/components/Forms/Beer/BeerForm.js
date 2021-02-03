@@ -1,15 +1,17 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
-import beer from '../../../FormPicutres/beer.png'
-import craft from '../../../FormPicutres/craft.png'
-import selzter from '../../../FormPicutres/seltzer.png'
-import smirnoff from '../../../FormPicutres/smirnoffice.jpeg'
-import six from '../../../FormPicutres/six.jpg'
-import seven from '../../../FormPicutres/seven.jpg'
-import eight from '../../../FormPicutres/eight.jpg'
-import nine from '../../../FormPicutres/nine.jpg'
-import ten from '../../../FormPicutres/ten.jpg'
+import beer from '../../../FormPicutres/beerpics/beer.png'
+import craft from '../../../FormPicutres/beerpics/craft.png'
+import selzter from '../../../FormPicutres/beerpics/seltzer.png'
+import smirnoff from '../../../FormPicutres/beerpics/smirnoffice.jpeg'
+import six from '../../../FormPicutres/beerpics/six.jpg'
+import seven from '../../../FormPicutres/beerpics/seven.jpg'
+import eight from '../../../FormPicutres/beerpics/eight.jpg'
+import nine from '../../../FormPicutres/beerpics/nine.jpg'
+import ten from '../../../FormPicutres/beerpics/ten.jpg'
+
+import './beerForm.css';
 
 import { Card } from 'react-bootstrap';
 

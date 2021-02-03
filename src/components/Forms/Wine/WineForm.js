@@ -1,10 +1,10 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
-import redwine from '../../../FormPicutres/redwine.png'
-import whitewine from '../../../FormPicutres/whitewine.png'
-import sangria from '../../../FormPicutres/sangria.jpeg'
-import champagne from '../../../FormPicutres/champagne.png'
+import redwine from '../../../FormPicutres/winepics/redwine.png'
+import whitewine from '../../../FormPicutres/winepics/whitewine.png'
+import sangria from '../../../FormPicutres/winepics/sangria.jpeg'
+import champagne from '../../../FormPicutres/winepics/champagne.png'
 
 import { Card } from 'react-bootstrap';
 
