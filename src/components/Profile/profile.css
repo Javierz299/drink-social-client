@@ -3,7 +3,8 @@
 }
 
 .profile-container-description{
-    border: 1px solid red;
+    border-bottom: 1px solid red;
+    padding: 10px;
 }
 
 .profile-container-description > img{

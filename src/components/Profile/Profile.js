@@ -5,6 +5,8 @@ import BeerForms from '../Forms/Beer/BeerForm';
 import WineForms from '../Forms/Wine/WineForm';
 import LiquorForms from '../Forms/Liquor/LiquorForm';
 import CocktailForms from '../Forms/Cocktail/CocktailForm';
+import BingeForms from '../Forms/Binge/BingeForm';
+
 import './profile.css';
 
 import axios from 'axios';
@@ -51,6 +53,8 @@ const ProtectedRoute = () => {
             <WineForms />
             <br/>
             <LiquorForms />
+            <br/>
+            <BingeForms />
         </div>
     )
 }

@@ -1,6 +1,13 @@
 .carousel-container{
     margin: 10px 5px;
-    background: lightblue;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    /* border-top: 1px solid black;
+    border-bottom: 1px solid black; */
+}
+
+.carousel-container h3 {
+  
+}
+
+.carousel-container div {
+   position: relative;
 }
