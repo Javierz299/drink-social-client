@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-elastic-carousel';
 
 import beer from '../../../FormPicutres/beerpics/beer.png'
@@ -11,14 +12,16 @@ import eight from '../../../FormPicutres/beerpics/eight.jpg'
 import nine from '../../../FormPicutres/beerpics/nine.jpg'
 import ten from '../../../FormPicutres/beerpics/ten.jpg'
 
-import getLiquorItem from '../../../LiquorStore/getLiquorItem';
 import AlcoholForm from '../../../components/AlcoholForm/AlcoholForm';
+import liquorStore from '../../../LiquorStore/LiquorStore';
+
 import './beerForm.css';
 
 import { Card } from 'react-bootstrap';
 
 const Beer = () => {
-    const [drinkModal, setDrinkModal] = useState(false)
+    const submitDrink = useSelector(submitDrink => submitDrink.user_reducer.submit_drink_form)
+    const dispatch = useDispatch()
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -28,20 +31,20 @@ const Beer = () => {
    ]
 
    const sendDrinkItem = (e) => {
-        setDrinkModal(true)
-        console.log('drink Item',e.target.id)
-            AlcoholForm(e.target.id)
+    dispatch({type: "SUBMIT_DRINK", payload: true})
+    console.log('drink Item',e.target.id)
+        const item = e.target.id;
+        const drinkItem = liquorStore[item];
+        console.log("drinkItem",drinkItem)
+        dispatch({type: "DRINK_ITEM", payload: drinkItem})
+        
    }
-
-   useEffect(() => {
-    console.log("drinkmodal",drinkModal)
-   }, [])
    //pagination={false} to carousel to remove dots. 
    //And showArrows={false}
 
         return (
             <div className="carousel-container">
-                {drinkModal ? <AlcoholForm /> :
+                {submitDrink ? <AlcoholForm /> :
                 <Carousel breakPoints={breakPoints}>
                 <div>
                 <h3>brewski</h3>

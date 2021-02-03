@@ -14,7 +14,6 @@ import config from '../../config';
 
 const ProtectedRoute = () => {
     const profile = useSelector(profile => profile.auth_reducer.profile);
-    const state = useSelector(state => state.user_reducer.submit_drink_form)
     useEffect(() => {
         const newProfile = {};
         if(!profile){

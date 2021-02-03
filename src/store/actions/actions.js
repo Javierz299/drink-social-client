@@ -36,3 +36,10 @@ export const submit_drink = () => {
         type: ACTION_TYPES.SUBMIT_DRINK
     }
 }
+
+export const drink_item = (item) => {
+    return {
+        type: ACTION_TYPES.SUBMIT_DRINK,
+        payload: item
+    }
+}
