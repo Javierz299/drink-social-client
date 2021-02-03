@@ -14,7 +14,7 @@ import longisland from '../../../FormPicutres/cocktailpics/longisland.jpg'
 
 import { Card } from 'react-bootstrap';
 
-const CocktailForms = () => {
+const cocktail = () => {
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -152,4 +152,4 @@ const CocktailForms = () => {
         )
 }
 
-export default CocktailForms;
+export default cocktail;

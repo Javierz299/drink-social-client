@@ -25,8 +25,14 @@ export const add_profile = (profile) => {
     }
 };
   
-  export const remove_profile = () => {
+export const remove_profile = () => {
     return {
       type: ACTION_TYPES.REMOVE_PROFILE
     }
 };
+
+export const submit_drink = () => {
+    return {
+        type: ACTION_TYPES.SUBMIT_DRINK
+    }
+}

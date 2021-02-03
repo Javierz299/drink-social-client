@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector } from 'react-redux';
-import BeerForms from '../Forms/Beer/BeerForm';
-import WineForms from '../Forms/Wine/WineForm';
-import LiquorForms from '../Forms/Liquor/LiquorForm';
-import CocktailForms from '../Forms/Cocktail/CocktailForm';
-import BingeForms from '../Forms/Binge/BingeForm';
+import Beer from '../Drinks/Beer/Beer';
+import Wine from '../Drinks/Wine/WineForm';
+import Liquor from '../Drinks/Liquor/Liquor';
+import Cocktail from '../Drinks/Cocktail/Cocktail';
+import Binge from '../Drinks/Binge/Binge';
 
 import './profile.css';
 
@@ -14,7 +14,7 @@ import config from '../../config';
 
 const ProtectedRoute = () => {
     const profile = useSelector(profile => profile.auth_reducer.profile);
-
+    const state = useSelector(state => state.user_reducer.submit_drink_form)
     useEffect(() => {
         const newProfile = {};
         if(!profile){
@@ -46,15 +46,15 @@ const ProtectedRoute = () => {
             }
             {/* details of drinks*/}
    
-            <BeerForms />
+            <Beer />
             <br/>
-            <CocktailForms />
+            <Cocktail />
             <br/>
-            <WineForms />
+            <Wine />
             <br/>
-            <LiquorForms />
+            <Liquor />
             <br/>
-            <BingeForms />
+            <Binge />
         </div>
     )
 }

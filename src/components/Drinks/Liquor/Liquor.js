@@ -1,13 +1,13 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
-import beerbong from '../../../FormPicutres/bingepics/beerbong.jpg'
-import shotgun from '../../../FormPicutres/bingepics/shotgun.jpg'
-import boilermaker from '../../../FormPicutres/bingepics/boilermaker.jpeg'
+import tequila from '../../../FormPicutres/liquorpics/tequila.jpeg'
+import vodka from '../../../FormPicutres/liquorpics/vodka.png'
+import whiskey from '../../../FormPicutres/liquorpics/whiskey.png'
 
 import { Card } from 'react-bootstrap';
 
-const BingeForms = () => {
+const liquor = () => {
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -21,41 +21,40 @@ const BingeForms = () => {
             <div className="carousel-container">
                 <Carousel breakPoints={breakPoints}>
                     <div>
-                    <h3>beer bong</h3>
+                    <h3>tequila shot</h3>
                     <Card>        
                         <img 
-                        src={beerbong} alt="beer bong"
-                        onClick={() => console.log("clicked beer")}
+                        src={tequila} alt="tequila"
+                        onClick={() => console.log("clicked tequila")}
                         className="card" 
                         />
                     </Card>
                     </div>
 
                     <div>
-                    <h3>shotgun</h3>
+                    <h3>vodka shot</h3>
                     <Card>        
                         <img 
-                        src={shotgun} alt="shotgun"
-                        onClick={() => console.log("clicked craft")}
+                        src={vodka} alt="vodka"
+                        onClick={() => console.log("clicked vodka")}
                         className="card" 
                         />
                     </Card>
                     </div>
-
                     <div>
-                    <h3>boilermaker</h3>
+
+                    <h3>whiskey shot</h3>
                     <Card>        
                         <img 
-                        src={boilermaker} alt="boilrmaker"
-                        onClick={() => console.log("clicked seltzer")}
+                        src={whiskey} alt="whiskey"
+                        onClick={() => console.log("clicked whiskey")}
                         className="card" 
                         />
                     </Card>
                     </div>
-
                 </Carousel>
             </div>
         )
 }
 
-export default BingeForms;
+export default liquor;
