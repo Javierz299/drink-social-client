@@ -14,7 +14,8 @@ import config from '../../config';
 
 const ProtectedRoute = () => {
     const profile = useSelector(profile => profile.auth_reducer.profile);
-    useEffect(() => {
+
+    useEffect( () => {
         const newProfile = {};
         if(!profile){
            return console.log("NO PROFILE YET")
@@ -24,9 +25,17 @@ const ProtectedRoute = () => {
             newProfile.name = tempName || profile.name;
             newProfile.email =profile.email;
         }
-        axios.post(`${config.API_ENDPOINT}/post/userprofile`,newProfile)
-            .then(res => console.log('RESPONSE',res));
+
         
+           axios.post(`${config.API_ENDPOINT}/post/userprofile`,newProfile)
+           if(profile){
+               console.log('passed')
+            axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
+                .then((res) => console.log("Get Success",res))
+           }
+   
+       console.log('profile',newProfile)
+    
     }, [profile])
     
     return (
