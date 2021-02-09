@@ -33,7 +33,7 @@ const Beer = () => {
    const sendDrinkItem = (e) => {
     dispatch({type: "SUBMIT_DRINK", payload: true})
     console.log('drink Item',e.target.id)
-        const item = e.target.id;
+       const item = e.target.id;
         const drinkItem = liquorStore[item];
         console.log("drinkItem",drinkItem)
         dispatch({type: "DRINK_ITEM", payload: drinkItem})
@@ -51,154 +51,147 @@ const Beer = () => {
                     /> */}
                 {submitDrink ? <AlcoholForm /> :
                 <Carousel breakPoints={breakPoints}>
-                <div>
+                <div >
                 <h3>brewski</h3>
                 <Card>        
-                    <button className="card-button"><p>12<small>oz</small></p><p>Beer</p></button>
+                <button id="1" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        12oz Beer
+                    </button>
                 </Card>
                 </div>
                 <div>
                 <h3>pint brewski</h3>
                 <Card>        
-                    <button className="card-button"><p>16<small>oz</small></p><p>Beer</p></button>
+                    <button id="2" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        16oz Beer
+                    </button>
                 </Card>
                 </div>
                 <div>
                 <h3>tall brewski</h3>
                 <Card>        
-                    <img id="3"
-                    src={beer} alt="beer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="3" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        24oz Beer 
+                    </button>
                 </Card>
                 </div>
                 <div>
                 <h3>40oz brewski</h3>
                 <Card>        
-                    <img id="4"
-                    src={beer} alt="beer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="4" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        FORTY 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>craft</h3>
                 <Card>        
-                    <img id="5"
-                    src={craft} alt="craft"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="5" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        12oz Craft 
+                    </button>
                 </Card>
                 </div>
                 <div>
                 <h3>pint craft</h3>
                 <Card>        
-                    <img id="6"
-                    src={craft} alt="craft"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="6" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        16oz Craft 
+                    </button>
                 </Card>
                 </div>
                 <div>
                 <h3>tall craft</h3>
                 <Card>        
-                    <img id="7"
-                    src={craft} alt="craft"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="7" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        24oz Craft 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>seltzer</h3>
                 <Card>        
-                    <img id="8"
-                    src={selzter} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="8" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        12oz Seltz 
+                    </button>
                 </Card>
                 </div>
                 <div>
                 <h3>tall seltzer</h3>
                 <Card>        
-                    <img id="9"
-                    src={selzter} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="9" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        24oz Seltz 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>smirnoff ice</h3>
                 <Card>        
-                    <img id="10"
-                    src={smirnoff} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="10" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        Ice 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>6% brewski</h3>
                 <Card>        
-                    <img id="11"
-                    src={six} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="11" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        6% 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>7% brewski</h3>
                 <Card>        
-                    <img id="12"
-                    src={seven} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="12" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        7% 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>8% brewski</h3>
                 <Card>        
-                    <img id="13"
-                    src={eight} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="13" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        8% 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>9% brewski</h3>
                 <Card>        
-                    <img id="14"
-                    src={nine} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="14" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        9% 
+                    </button>
                 </Card>
                 </div>
 
                 <div>
                 <h3>10%+ bewski</h3>
                 <Card>        
-                    <img id="15"
-                    src={ten} alt="seltzer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                <button id="15" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        10%+ 
+                    </button>
                 </Card>
                 </div>
             </Carousel>
