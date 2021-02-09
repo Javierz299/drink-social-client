@@ -44,26 +44,23 @@ const Beer = () => {
 
         return (
             <div className="carousel-container">
+                {/* <img id="1"
+                    src={beer} alt="beer"
+                    onClick={(e) => sendDrinkItem(e)}
+                    className="card" 
+                    /> */}
                 {submitDrink ? <AlcoholForm /> :
                 <Carousel breakPoints={breakPoints}>
                 <div>
                 <h3>brewski</h3>
                 <Card>        
-                    <img id="1"
-                    src={beer} alt="beer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                    <button className="card-button"><p>12<small>oz</small></p><p>Beer</p></button>
                 </Card>
                 </div>
                 <div>
                 <h3>pint brewski</h3>
                 <Card>        
-                    <img id="2"
-                    src={beer} alt="beer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    />
+                    <button className="card-button"><p>16<small>oz</small></p><p>Beer</p></button>
                 </Card>
                 </div>
                 <div>
