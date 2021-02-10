@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector } from 'react-redux';
 import BeerCarousel from '../DrinkCarousels/BeerCarousel/BeerCarousel';
-import WineCarousel from '../DrinkCarousels/Wine/Wine';
-import Liquor from '../DrinkCarousels/LiquorCarousel/LiquorCarousel';
+import WineCarousel from '../DrinkCarousels/WineCarousel/WineCarousel';
+import LiquorCarousel from '../DrinkCarousels/LiquorCarousel/LiquorCarousel';
 import CocktailCarousel from '../DrinkCarousels/CocktailCarousel/CocktailCarousel';
-import Binge from '../DrinkCarousels/Binge/Binge';
+import BingeCarousel from '../DrinkCarousels/BingeCarousel/BingeCarousel';
 
 import './profile.css';
 
@@ -60,9 +60,9 @@ const ProtectedRoute = () => {
             <br/>
             <WineCarousel />
             <br/>
-            <Liquor />
+            <LiquorCarousel />
             <br/>
-            <Binge />
+            <BingeCarousel />
         </div>
     )
 }

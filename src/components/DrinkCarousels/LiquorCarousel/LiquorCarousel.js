@@ -1,13 +1,16 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-elastic-carousel';
 
-import tequila from '../../../FormPicutres/liquorpics/tequila.jpeg'
-import vodka from '../../../FormPicutres/liquorpics/vodka.png'
-import whiskey from '../../../FormPicutres/liquorpics/whiskey.png'
+import LiquorForm from '../../AlcoholForm/LiquorForm';
+import liquorStore from '../../../LiquorStore/LiquorStore';
 
 import { Card } from 'react-bootstrap';
 
-const liquor = () => {
+const Liquor = () => {
+    const submitLiquorDrink = useSelector(submitLiquorDrink => submitLiquorDrink.user_reducer.submit_liquor_drink_form);
+    const dispatch = useDispatch();
+
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -15,46 +18,84 @@ const liquor = () => {
     { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1440, itemsToShow: 5 },
    ]
+
+   const sendDrinkItem = (e) => {
+    dispatch({type: "SUBMIT_LIQUOR_DRINK", payload: true})
+       const item = e.target.id;
+        const drinkItem = liquorStore[item];
+        dispatch({type: "DRINK_ITEM", payload: drinkItem}) 
+   }
    //pagination={false} to carousel to remove dots. 
    //And showArrows={false}
         return (
             <div className="carousel-container">
+                {submitLiquorDrink ? <LiquorForm /> :
+
                 <Carousel breakPoints={breakPoints}>
                     <div>
                     <h3>tequila shot</h3>
                     <Card>        
-                        <img 
-                        src={tequila} alt="tequila"
-                        onClick={() => console.log("clicked tequila")}
-                        className="card" 
-                        />
+                    <button id="31" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        tequila
+                    </button>
                     </Card>
                     </div>
 
                     <div>
                     <h3>vodka shot</h3>
                     <Card>        
-                        <img 
-                        src={vodka} alt="vodka"
-                        onClick={() => console.log("clicked vodka")}
-                        className="card" 
-                        />
+                    <button id="32" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        vodka
+                    </button>
                     </Card>
                     </div>
-                    <div>
 
+                    <div>
                     <h3>whiskey shot</h3>
                     <Card>        
-                        <img 
-                        src={whiskey} alt="whiskey"
-                        onClick={() => console.log("clicked whiskey")}
-                        className="card" 
-                        />
+                    <button id="33" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        whiskey
+                    </button>
+                    </Card>
+                    </div>
+
+                    <div>
+                    <h3>bourbon</h3>
+                    <Card>        
+                    <button id="34" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        bourbon
+                    </button>
+                    </Card>
+                    </div>
+
+                    <div>
+                    <h3>scotch</h3>
+                    <Card>        
+                    <button id="35" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        scotch
+                    </button>
+                    </Card>
+                    </div>
+
+                    <div>
+                    <h3>brandy</h3>
+                    <Card>        
+                    <button id="36" onClick={(e) => sendDrinkItem(e)}
+                        className="card-button">
+                        brandy
+                    </button>
                     </Card>
                     </div>
                 </Carousel>
+                }
+                
             </div>
         )
 }
 
-export default liquor;
+export default Liquor;
