@@ -2,16 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-elastic-carousel';
 
-import beer from '../../../FormPicutres/beerpics/beer.png'
-import craft from '../../../FormPicutres/beerpics/craft.png'
-import selzter from '../../../FormPicutres/beerpics/seltzer.png'
-import smirnoff from '../../../FormPicutres/beerpics/smirnoffice.jpeg'
-import six from '../../../FormPicutres/beerpics/six.jpg'
-import seven from '../../../FormPicutres/beerpics/seven.jpg'
-import eight from '../../../FormPicutres/beerpics/eight.jpg'
-import nine from '../../../FormPicutres/beerpics/nine.jpg'
-import ten from '../../../FormPicutres/beerpics/ten.jpg'
-
 import AlcoholForm from '../../../components/AlcoholForm/AlcoholForm';
 import liquorStore from '../../../LiquorStore/LiquorStore';
 
@@ -36,19 +26,13 @@ const Beer = () => {
        const item = e.target.id;
         const drinkItem = liquorStore[item];
         console.log("drinkItem",drinkItem)
-        dispatch({type: "DRINK_ITEM", payload: drinkItem})
-        
+        dispatch({type: "DRINK_ITEM", payload: drinkItem}) 
    }
    //pagination={false} to carousel to remove dots. 
    //And showArrows={false}
 
         return (
             <div className="carousel-container">
-                {/* <img id="1"
-                    src={beer} alt="beer"
-                    onClick={(e) => sendDrinkItem(e)}
-                    className="card" 
-                    /> */}
                 {submitDrink ? <AlcoholForm /> :
                 <Carousel breakPoints={breakPoints}>
                 <div >
