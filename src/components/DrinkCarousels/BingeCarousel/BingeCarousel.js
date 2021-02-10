@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-elastic-carousel';
 
 import BingeForm from '../../AlcoholForm/BingeForm';
+import breakPoints from '../../../Carousel/breakPoints';
 import liquorStore from '../../../LiquorStore/LiquorStore';
 
 import { Card } from 'react-bootstrap';
@@ -10,17 +11,10 @@ import { Card } from 'react-bootstrap';
 const Binge = () => {
     const submitBingeDrink = useSelector(submitBingeDrink => submitBingeDrink.user_reducer.submit_binge_drink_form)
     const dispatch = useDispatch()
-   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-    { width: 850, itemsToShow: 3 },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1440, itemsToShow: 5 },
-   ]
-
-   const sendDrinkItem = (e) => {
-    dispatch({type: "SUBMIT_BINGE_DRINK", payload: true})
-       const item = e.target.id;
+  
+    const sendDrinkItem = (e) => {
+        dispatch({type: "SUBMIT_BINGE_DRINK", payload: true})
+        const item = e.target.id;
         const drinkItem = liquorStore[item];
         dispatch({type: "DRINK_ITEM", payload: drinkItem}) 
    }

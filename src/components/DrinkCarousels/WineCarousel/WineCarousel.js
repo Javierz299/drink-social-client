@@ -3,27 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-elastic-carousel';
 
 import WineForm from '../../AlcoholForm/WineForm';
+import breakPoints from '../../../Carousel/breakPoints';
 import liquorStore from '../../../LiquorStore/LiquorStore';
 
 import { Card } from 'react-bootstrap';
-
-import '../BeerCarousel/beerForm.css';
 
 const Wine = () => {
     const submitWineDrink = useSelector(submitWineDrink => submitWineDrink.user_reducer.submit_wine_drink_form)
     const dispatch = useDispatch();
 
-   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-    { width: 850, itemsToShow: 3 },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1440, itemsToShow: 5 },
-   ]
-
-   const sendDrinkItem = (e) => {
-    dispatch({type: "SUBMIT_WINE_DRINK", payload: true})
-       const item = e.target.id;
+    const sendDrinkItem = (e) => {
+        dispatch({type: "SUBMIT_WINE_DRINK", payload: true})
+        const item = e.target.id;
         const drinkItem = liquorStore[item];
         dispatch({type: "DRINK_ITEM", payload: drinkItem}) 
    }
