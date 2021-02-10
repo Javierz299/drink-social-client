@@ -1,7 +1,6 @@
 .alcoholForm{
     position: absolute;
-    border: 1px solid green;
-    background: lightgreen;
+    background: linear-gradient(#ffecb3 40%,#ffecb3 90%);  
     top: 0px;
     right: 0px;
     bottom: 0px;

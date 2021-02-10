@@ -21,7 +21,7 @@
         display: block;
         align-content: end;
         width: 50px;
-        border: 1px solid red;
+        border: 1px solid black;
         
     }
     .main-nav-hide{
@@ -30,14 +30,41 @@
     .main-nav-show{
         padding: 5px;
         position: absolute;
+        top: 25px;
+        left: -10px;
         z-index: 2;
         display: grid;
         grid-template-columns: 1fr;
-        width: 50%;
-        height: 100%;
+        width: 60vw;
+        height: 100vh;
     }
+
     .main-nav-show > span{
+        background: rgba(0, 0, 0, 0.769);
+        width: 100%;
+        /* border-bottom: #ffe494; */
+        border: 1px solid #ffe494;
         padding: 5px;
-        border: 1px solid blue;
+    }
+
+    .log_in_out{
+        padding: 5px;
+    }
+
+    .log_in_out:hover{
+        padding: 5px;
+        color: white;
+    }
+
+    .nav-link{
+        color: #ffe494;
+        width: 100%;
+        padding: 5px;
+        /* border: 1px solid green; */
+        text-decoration: none;
+    }
+
+    .nav-link:hover{
+        color: white;
     }
 }

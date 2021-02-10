@@ -22,9 +22,9 @@ const MainNavButtons = (props) => {
     return (
         <div id="main-nav-container">
            <div id="main-nav-buttons">
-                <span><Link to="/">Home</Link></span>
-                <span><Link to="/stats">Stats</Link></span>
-                <span><Link to="/profile">Profile</Link></span>
+                <span><Link className="nav-link" to="/">Home</Link></span>
+                <span><Link className="nav-link" to="/stats">Stats</Link></span>
+                <span><Link className="nav-link" to="/profile">Profile</Link></span>
                 {state ? 
                 <span onClick={() => log_out()} >Log Out</span> :
                 <span onClick={() => props.auth.login()} >Log In</span>
@@ -35,12 +35,12 @@ const MainNavButtons = (props) => {
                  className="main-nav-menu">
                 Menu
                 <div className={toggle ? "main-nav-show" : "main-nav-hide"}>
-                    <span><Link to="/">Home</Link></span>
-                    <span><Link to="/stats">Stats</Link></span>
-                    <span><Link to="/profile">Profile</Link></span>
+                    <span><Link className="nav-link" to="/">Home</Link></span>
+                    <span><Link className="nav-link" to="/stats">Stats</Link></span>
+                    <span><Link className="nav-link" to="/profile">Profile</Link></span>
                     {state ? 
-                    <span onClick={() => log_out()} >Log Out</span> :
-                    <span onClick={() => props.auth.login()} >Log In</span>
+                    <span className="log_in_out" onClick={() => log_out()} >Log Out</span> :
+                    <span className="log_in_out" onClick={() => props.auth.login()} >Log In</span>
                     }
                 </div>
             </div>

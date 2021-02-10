@@ -1,5 +1,7 @@
 body{
+  color: #ffe494;  
   position: relative;
+  letter-spacing: 2px;
   background: rgb(73, 72, 72);
   max-width: 1440px;
   padding: 0;
