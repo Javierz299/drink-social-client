@@ -2,15 +2,15 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-elastic-carousel';
 
-import AlcoholForm from '../../../components/AlcoholForm/AlcoholForm';
+import CocktailForm from '../../AlcoholForm/CocktailForm';
 import liquorStore from '../../../LiquorStore/LiquorStore';
 
-import '../Beer/beerForm.css';
+import '../BeerCarousel/beerForm.css';
 
 import { Card } from 'react-bootstrap';
 
 const Cocktail = () => {
-    const submitDrink = useSelector(submitDrink => submitDrink.user_reducer.submit_drink_form)
+    const submitCockTailDrink = useSelector(submitCockTailDrink => submitCockTailDrink.user_reducer.submit_cocktail_drink_form)
     const dispatch = useDispatch()
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -21,17 +21,15 @@ const Cocktail = () => {
    ]
 
    const sendDrinkItem = (e) => {
-    dispatch({type: "SUBMIT_DRINK", payload: true})
-    console.log('drink Item',e.target.id)
+    dispatch({type: "SUBMIT_COCKTAIL_DRINK", payload: true})
        const item = e.target.id;
         const drinkItem = liquorStore[item];
-        console.log("drinkItem",drinkItem)
         dispatch({type: "DRINK_ITEM", payload: drinkItem}) 
    }
    
         return (
             <div className="carousel-container">
-                {submitDrink ? <AlcoholForm /> :
+                {submitCockTailDrink ? <CocktailForm /> :
                     <Carousel breakPoints={breakPoints}>
                     <div>
                     <h3>margarita</h3>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-elastic-carousel';
 
-import AlcoholForm from '../../../components/AlcoholForm/AlcoholForm';
+import BeerForm from '../../AlcoholForm/BeerForm';
 import liquorStore from '../../../LiquorStore/LiquorStore';
 
 import './beerForm.css';
@@ -10,7 +10,7 @@ import './beerForm.css';
 import { Card } from 'react-bootstrap';
 
 const Beer = () => {
-    const submitDrink = useSelector(submitDrink => submitDrink.user_reducer.submit_drink_form)
+    const submitBeerDrink = useSelector(submitBeerDrink => submitBeerDrink.user_reducer.submit_beer_drink_form)
     const dispatch = useDispatch()
    const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -21,11 +21,9 @@ const Beer = () => {
    ]
 
    const sendDrinkItem = (e) => {
-    dispatch({type: "SUBMIT_DRINK", payload: true})
-    console.log('drink Item',e.target.id)
+    dispatch({type: "SUBMIT_BEER_DRINK", payload: true})
        const item = e.target.id;
         const drinkItem = liquorStore[item];
-        console.log("drinkItem",drinkItem)
         dispatch({type: "DRINK_ITEM", payload: drinkItem}) 
    }
    //pagination={false} to carousel to remove dots. 
@@ -33,7 +31,7 @@ const Beer = () => {
 
         return (
             <div className="carousel-container">
-                {submitDrink ? <AlcoholForm /> :
+                {submitBeerDrink ? <BeerForm /> :
                 <Carousel breakPoints={breakPoints}>
                 <div >
                 <h3>brewski</h3>

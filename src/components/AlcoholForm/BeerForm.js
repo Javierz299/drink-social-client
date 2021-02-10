@@ -1,12 +1,12 @@
 import React from 'react';
 import config from '../../config';
 import { useDispatch, useSelector } from 'react-redux';
-import { SUBMIT_DRINK } from '../../store/actions/action_types';
+import * as ACTION_TYPES from '../../store/actions/action_types';
 
 import axios from 'axios';
 
 import './alcoholForm.css'
-const AlcoholForm = () => {
+const BeerForm = () => {
     const profile = useSelector(profile => profile.auth_reducer.profile);
     const userDrinkItem = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[0]);
     const userDrinkMessage = useSelector(userDrinkMessage => userDrinkMessage.user_reducer.drink_item[1]);
@@ -16,14 +16,14 @@ const AlcoholForm = () => {
     const handlePostDrink = () => {
         console.log("beer me clicked",userDrinkItem)
         const userSubmission = {email: profile.email, drink: userDrinkItem, amount: userDrinkAmount}
-        dispatch({type: SUBMIT_DRINK, payload: false})
+        dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false})
         console.log('USER SUBMISSION',userSubmission)
         // axios.post(`${config.API_ENDPOINT}/post/userDrinkItem`,userSubmission)
         //     .then(res => console.log())
     }
 
     const handleDrink = () => {
-        dispatch({type: SUBMIT_DRINK, payload: false})
+        dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false})
     }
 
     return (
@@ -36,4 +36,4 @@ const AlcoholForm = () => {
     )
 }
 
-export default AlcoholForm
+export default BeerForm;

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector } from 'react-redux';
-import Beer from '../Drinks/Beer/Beer';
-import Wine from '../Drinks/Wine/WineForm';
-import Liquor from '../Drinks/Liquor/Liquor';
-import Cocktail from '../Drinks/Cocktail/Cocktail';
-import Binge from '../Drinks/Binge/Binge';
+import BeerCarousel from '../DrinkCarousels/BeerCarousel/BeerCarousel';
+import WineCarousel from '../DrinkCarousels/Wine/Wine';
+import Liquor from '../DrinkCarousels/LiquorCarousel/LiquorCarousel';
+import CocktailCarousel from '../DrinkCarousels/CocktailCarousel/CocktailCarousel';
+import Binge from '../DrinkCarousels/Binge/Binge';
 
 import './profile.css';
 
@@ -54,11 +54,11 @@ const ProtectedRoute = () => {
             }
             {/* details of drinks*/}
    
-            <Beer />
+            <BeerCarousel />
             <br/>
-            <Cocktail />
+            <CocktailCarousel />
             <br/>
-            <Wine />
+            <WineCarousel />
             <br/>
             <Liquor />
             <br/>

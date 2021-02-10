@@ -31,15 +31,15 @@ export const remove_profile = () => {
     }
 };
 
-export const submit_drink = () => {
+export const submit_beer_drink = () => {
     return {
-        type: ACTION_TYPES.SUBMIT_DRINK
+        type: ACTION_TYPES.SUBMIT_BEER_DRINK
     }
 }
 
 export const drink_item = (item) => {
     return {
-        type: ACTION_TYPES.SUBMIT_DRINK,
+        type: ACTION_TYPES.DRINK_ITEM,
         payload: item
     }
 }
