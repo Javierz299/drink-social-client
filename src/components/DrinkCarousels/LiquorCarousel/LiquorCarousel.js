@@ -26,7 +26,7 @@ const Liquor = () => {
 
                 <Carousel breakPoints={breakPoints}>
                     <div>
-                    <h3>tequila shot</h3>
+                    <h3>TEQUILA SHOT</h3>
                     <Card>        
                     <button id="31" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -36,7 +36,7 @@ const Liquor = () => {
                     </div>
 
                     <div>
-                    <h3>vodka shot</h3>
+                    <h3>VODKA SHOT</h3>
                     <Card>        
                     <button id="32" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -46,7 +46,7 @@ const Liquor = () => {
                     </div>
 
                     <div>
-                    <h3>whiskey shot</h3>
+                    <h3>WHISKEY SHOT</h3>
                     <Card>        
                     <button id="33" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -56,7 +56,7 @@ const Liquor = () => {
                     </div>
 
                     <div>
-                    <h3>bourbon</h3>
+                    <h3>BOURBON</h3>
                     <Card>        
                     <button id="34" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -66,7 +66,7 @@ const Liquor = () => {
                     </div>
 
                     <div>
-                    <h3>scotch</h3>
+                    <h3>SCOTCH</h3>
                     <Card>        
                     <button id="35" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -76,7 +76,7 @@ const Liquor = () => {
                     </div>
 
                     <div>
-                    <h3>brandy</h3>
+                    <h3>BRANDY</h3>
                     <Card>        
                     <button id="36" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">

@@ -19,6 +19,18 @@
     padding: 8px;
 }
 
+.form-cancel{
+    letter-spacing: 2px;
+    background: red;
+    border-radius: 5px;
+}
+
+.form-add{
+    letter-spacing: 2px;
+    background: #fcd972;
+    border-radius: 5px;
+}
+
 .drink_disclaimer{
     border-bottom: 1px solid black;
 }

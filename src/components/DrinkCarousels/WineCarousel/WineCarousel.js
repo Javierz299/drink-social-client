@@ -25,7 +25,7 @@ const Wine = () => {
                 {submitWineDrink ? <WineForm /> :
                     <Carousel breakPoints={breakPoints}>
                     <div>
-                    <h3>red wine</h3>
+                    <h3>RED WINE</h3>
                     <Card>        
                     <button id="27" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -35,7 +35,7 @@ const Wine = () => {
                     </div>
 
                     <div>
-                    <h3>white wine</h3>
+                    <h3>WHITE WINE</h3>
                     <Card>        
                     <button id="28" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -45,7 +45,7 @@ const Wine = () => {
                     </div>
 
                     <div>
-                    <h3>sangria</h3>
+                    <h3>SANGRIA</h3>
                     <Card>        
                     <button id="29" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -55,7 +55,7 @@ const Wine = () => {
                     </div>
 
                     <div>
-                    <h3>champagne</h3>
+                    <h3>CHAMPAGNE</h3>
                     <Card>        
                     <button id="30" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">

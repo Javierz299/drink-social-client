@@ -43,3 +43,10 @@ export const drink_item = (item) => {
         payload: item
     }
 }
+
+export const db_user_id = (userId) => {
+    return {
+        type: ACTION_TYPES.DB_USER_ID,
+        payload: userId
+    }
+}

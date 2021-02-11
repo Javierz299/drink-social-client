@@ -25,7 +25,7 @@ const Binge = () => {
                 {submitBingeDrink ? <BingeForm /> :
                     <Carousel breakPoints={breakPoints}>
                     <div>
-                    <h3>beer bong</h3>
+                    <h3>BEER BONG</h3>
                     <Card>        
                     <button id="37" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -35,7 +35,7 @@ const Binge = () => {
                     </div>
 
                     <div>
-                    <h3>shotgun</h3>
+                    <h3>SHOTGUN</h3>
                     <Card>        
                     <button id="38" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
@@ -45,7 +45,7 @@ const Binge = () => {
                     </div>
 
                     <div>
-                    <h3>boilermaker</h3>
+                    <h3>BOILERMAKER</h3>
                     <Card>        
                     <button id="39" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">

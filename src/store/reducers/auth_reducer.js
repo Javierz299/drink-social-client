@@ -3,6 +3,7 @@ import * as ACTION_TYPES from '../actions/action_types';
 const initialState = {
     is_authenticated: false,
     profile: null,
+    dbUserId: null,
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -35,6 +36,11 @@ const AuthReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profile: null
+            }
+        case ACTION_TYPES.DB_USER_ID:
+            return {
+                ...state,
+                dbUserId: action.payload
             }
         default:
             return state;

@@ -16,11 +16,8 @@ const MainNavButtons = (props) => {
         history.push("/")
     }
 
-    const profile = useSelector(profile => profile.auth_reducer.profile);
-    console.log("profile in mainNavButtons",profile)
-    console.log("state in mainNavButtons",state)
-
-
+    //const profile = useSelector(profile => profile.auth_reducer.profile);
+    
     return (
         <div id="main-nav-container">
            <div id="main-nav-buttons">
@@ -35,7 +32,7 @@ const MainNavButtons = (props) => {
             <div onMouseEnter={() => setToggle(!toggle)}
                  onMouseLeave={() => setToggle(!toggle)}
                  className="main-nav-menu">
-                Menu
+                    Menu
                 <div className={toggle ? "main-nav-show" : "main-nav-hide"}>
                     <Link className="nav-link" to="/">
                         <span>Home</span>

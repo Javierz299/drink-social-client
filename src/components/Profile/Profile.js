@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import BeerCarousel from '../DrinkCarousels/BeerCarousel/BeerCarousel';
 import WineCarousel from '../DrinkCarousels/WineCarousel/WineCarousel';
 import LiquorCarousel from '../DrinkCarousels/LiquorCarousel/LiquorCarousel';
@@ -11,10 +11,13 @@ import './profile.css';
 
 import axios from 'axios';
 import config from '../../config';
+import { DB_USER_ID } from '../../store/actions/action_types';
 
 const ProtectedRoute = () => {
-    const profile = useSelector(profile => profile.auth_reducer.profile);
+    const profile = useSelector(profile => profile.auth_reducer.profile);   
+    const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
 
+    const dispatch = useDispatch();
     useEffect( () => {
         const newProfile = {};
         if(!profile){
@@ -23,20 +26,20 @@ const ProtectedRoute = () => {
             console.log('PROFILE READY')
             let tempName = profile.name.substring(0,profile.name.indexOf("@"));
             newProfile.name = tempName || profile.name;
-            newProfile.email =profile.email;
+            newProfile.email = profile.email;
         }
 
         
            axios.post(`${config.API_ENDPOINT}/post/userprofile`,newProfile)
            if(profile){
-               console.log('passed')
+               console.log('passed',newProfile.email)
             axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
-                .then((res) => console.log("Get Success",res))
+                .then((res) => dispatch({type: DB_USER_ID, payload: res.data.id}))
            }
    
-       console.log('profile',newProfile)
+       console.log('profile',newProfile,dbUserId)
     
-    }, [profile])
+    }, [profile,dbUserId])//useEffect will render once there is a change
     
     return (
         <div id="profile-container" >
