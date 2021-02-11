@@ -1,4 +1,10 @@
 #drink-social-header {
     padding: 5px;
     border: 1px solid black;
+    
+}
+
+.drink-social-logo{
+    text-decoration: none;
+    color:  #fcd972;
 }

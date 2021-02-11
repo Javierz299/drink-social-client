@@ -1,9 +1,25 @@
 .alcoholForm{
     position: absolute;
-    background: linear-gradient(#ffecb3 40%,#ffecb3 90%);  
+    background: rgb(73, 72, 72);  
+    border: 1px solid #fcd972;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
-    z-index: 999;
+    z-index: 9;
 }
+
+.form-confirmation-buttons{
+    padding: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-confirmation-buttons > button{
+    padding: 8px;
+}
+
+.drink_disclaimer{
+    border-bottom: 1px solid black;
+}
+

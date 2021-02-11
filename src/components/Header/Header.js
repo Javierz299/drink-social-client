@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header>
             <div id="drink-social-header">
-                <Link to="/" >Drink Social</Link>
+                <Link className="drink-social-logo" to="/" >Drink Social</Link>
             </div>
         </header>
     )

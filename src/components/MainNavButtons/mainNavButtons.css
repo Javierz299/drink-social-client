@@ -32,39 +32,42 @@
         position: absolute;
         top: 25px;
         left: -10px;
-        z-index: 2;
+        z-index: 10;
         display: grid;
         grid-template-columns: 1fr;
         width: 60vw;
-        height: 100vh;
+        height: 75vh;
     }
 
-    .main-nav-show > span{
+    .log_in_out{
+        color: #ffe494;
+        padding: 5px;
         background: rgba(0, 0, 0, 0.769);
         width: 100%;
-        /* border-bottom: #ffe494; */
         border: 1px solid #ffe494;
         padding: 5px;
     }
 
-    .log_in_out{
-        padding: 5px;
-    }
-
     .log_in_out:hover{
-        padding: 5px;
-        color: white;
+        color:  #fcd972;
+        background: rgba(0, 0, 0, 0.947);
+        border: 1px solid #fce59f;
     }
 
     .nav-link{
+        background: rgba(0, 0, 0, 0.769);
+        width: 100%;
+        border: 1px solid #ffe494;
+        padding: 5px;
         color: #ffe494;
         width: 100%;
         padding: 5px;
-        /* border: 1px solid green; */
         text-decoration: none;
     }
 
     .nav-link:hover{
-        color: white;
+        color:  #fcd972;
+        background: rgba(0, 0, 0, 0.947);
+        border: 1px solid #fce59f;
     }
 }

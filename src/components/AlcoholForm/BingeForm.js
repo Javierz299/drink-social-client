@@ -26,10 +26,10 @@ const LiquorForm = () => {
 
     return (
         <div className="alcoholForm">
-            <h6>Don't drink and drive!</h6>
+            <h6><span className="drink_disclaimer">**Don't drink and drive!**</span></h6>
             <h4>{userDrinkMessage}</h4>
-            <button onClick={() => handleDrink()}>cancel</button>
-            <button onClick={() => handlePostDrink()}>Add Drink</button>
+            <button className="bouncy" onClick={() => handleDrink()}>cancel</button>
+            <button className="bouncy" onClick={() => handlePostDrink()}>Add Drink</button>
         </div>
     )
 }
