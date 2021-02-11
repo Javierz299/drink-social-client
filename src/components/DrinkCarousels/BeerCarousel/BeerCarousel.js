@@ -20,9 +20,7 @@ const Beer = () => {
         const drinkItem = liquorStore[item];
         dispatch({type: "DRINK_ITEM", payload: drinkItem}) 
    }
-   //pagination={false} to carousel to remove dots. 
-   //And showArrows={false}
-
+  
         return (
             <div className="carousel-container">
                 {submitBeerDrink ? <BeerForm /> :

@@ -38,6 +38,7 @@ const AuthReducer = (state = initialState, action) => {
                 profile: null
             }
         case ACTION_TYPES.DB_USER_ID:
+            console.log("ID",action.payload)
             return {
                 ...state,
                 dbUserId: action.payload

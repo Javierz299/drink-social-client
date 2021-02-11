@@ -31,20 +31,22 @@ const ProtectedRoute = () => {
 
         
            axios.post(`${config.API_ENDPOINT}/post/userprofile`,newProfile)
+           //once profile updates. we fetch our users id from db.
            if(profile){
-               console.log('passed',newProfile.email)
-            axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
+               setTimeout(() => {
+                axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
                 .then((res) => dispatch({type: DB_USER_ID, payload: res.data.id}))
+               }, 500);//delay for initial post of new user and getting id. need time to set new user in db before fetching id.
            }
    
        console.log('profile',newProfile,dbUserId)
     
-    }, [profile,dbUserId])//useEffect will render once there is a change
+    }, [profile,dbUserId])//useEffect will re-render once there is a change
     
     return (
         <div id="profile-container" >
             {/*add different spinner for loading profile currently set as authcallback */
-            !profile ? <AuthCallBack /> :
+            !dbUserId ? <AuthCallBack /> :
             <div className="profile-container-description" >
                 <img onClick={() => console.log("show total number of drinks")} src={profile.picture} alt="pic" />
                 <h3>{
@@ -53,19 +55,21 @@ const ProtectedRoute = () => {
                 }</h3>
                 
                    {console.log("profile",profile)}
+                <div>
+                    <BeerCarousel />
+                    <br/>
+                    <CocktailCarousel />
+                    <br/>
+                    <WineCarousel />
+                    <br/>
+                    <LiquorCarousel />
+                    <br/>
+                    <BingeCarousel />
+                </div>
             </div>
             }
             {/* details of drinks*/}
    
-            <BeerCarousel />
-            <br/>
-            <CocktailCarousel />
-            <br/>
-            <WineCarousel />
-            <br/>
-            <LiquorCarousel />
-            <br/>
-            <BingeCarousel />
         </div>
     )
 }

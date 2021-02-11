@@ -6,7 +6,8 @@ const initialState = {
     submit_wine_drink_form: false,
     submit_liquor_drink_form: false,
     submit_binge_drink_form: false,
-    drink_item: ''
+    drink_item: '',
+    allDrinkValues: []
 };
 
 const AuthReducer = (state = initialState, action) => {
