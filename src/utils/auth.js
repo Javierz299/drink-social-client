@@ -44,7 +44,7 @@ class Auth {
                 localStorage.setItem('access_token', authResult.accessToken);
                 localStorage.setItem('id_token', authResult.idToken);
 
-                let expiresAt = JSON.stringify(authResult.expiresIn * 2000 + new Date().getTime());
+                let expiresAt = JSON.stringify(authResult.expiresIn * 4000 + new Date().getTime());
                 localStorage.setItem('expiresAt',expiresAt);
 
                 this.getProfile();

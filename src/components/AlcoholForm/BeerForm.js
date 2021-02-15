@@ -7,24 +7,23 @@ import axios from 'axios';
 
 import './alcoholForm.css'
 const BeerForm = () => {
+   
     const profile = useSelector(profile => profile.auth_reducer.profile);
+    const dbUserId = useSelector(id => id.auth_reducer.dbUserId);
     const userDrinkItem = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[0]);
     const userDrinkMessage = useSelector(userDrinkMessage => userDrinkMessage.user_reducer.drink_item[1]);
-    const userDrinkAmount = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[2]);
+    //const userDrinkAmount = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[2]);
     const dispatch = useDispatch();
 
     const handlePostDrink = () => {
-        console.log("beer me clicked",userDrinkItem)
-        const userSubmission = {email: profile.email, drink: userDrinkItem, amount: userDrinkAmount}
-        dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false})
-        console.log('USER SUBMISSION',userSubmission)
-        // axios.post(`${config.API_ENDPOINT}/post/userDrinkItem`,userSubmission)
-        //     .then(res => console.log())
-    }
+        dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false});
+        console.log("beerForm",userDrinkItem)
+        axios.patch(`${config.API_ENDPOINT}/patch/beer`,{dbUserId,userDrinkItem})
+    };
 
     const handleDrink = () => {
-        dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false})
-    }
+        dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false});
+    };
 
     return (
         <div className="alcoholForm">

@@ -7,6 +7,8 @@ import LiquorCarousel from '../DrinkCarousels/LiquorCarousel/LiquorCarousel';
 import CocktailCarousel from '../DrinkCarousels/CocktailCarousel/CocktailCarousel';
 import BingeCarousel from '../DrinkCarousels/BingeCarousel/BingeCarousel';
 
+import initialDrinkValues from '../../LiquorStore/DrinkCarouselValues';
+
 import './profile.css';
 
 import axios from 'axios';
@@ -19,6 +21,8 @@ const ProtectedRoute = () => {
 
     const dispatch = useDispatch();
     useEffect( () => {
+        //send an intial post for all drink tables here?
+        //once user goes to profile route we'll send it
         const newProfile = {};
         if(!profile){
            return console.log("NO PROFILE YET")
@@ -29,16 +33,18 @@ const ProtectedRoute = () => {
             newProfile.email = profile.email;
         }
 
-        
-           axios.post(`${config.API_ENDPOINT}/post/userprofile`,newProfile)
+        axios.post(`${config.API_ENDPOINT}/post/userprofile`,newProfile)
            //once profile updates. we fetch our users id from db.
            if(profile){
                setTimeout(() => {
                 axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
                 .then((res) => dispatch({type: DB_USER_ID, payload: res.data.id}))
-               }, 500);//delay for initial post of new user and getting id. need time to set new user in db before fetching id.
+               }, 400);//delay for initial post of new user and getting id. need time to set new user in db before fetching id.
            }
-   
+        if(dbUserId){
+        //we wait to get user id to make our initial post for them
+        axios.post(`${config.API_ENDPOINT}/post/userDrinkItem`,{ user_id: dbUserId, ...initialDrinkValues})
+        }
        console.log('profile',newProfile,dbUserId)
     
     }, [profile,dbUserId])//useEffect will re-render once there is a change
