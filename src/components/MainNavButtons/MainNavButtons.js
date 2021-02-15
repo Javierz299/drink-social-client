@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useisAuthenticated, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 
@@ -6,7 +6,8 @@ import './mainNavButtons.css';
 
 const MainNavButtons = (props) => {
     let [toggle, setToggle] = useState(false);
-    const state = useSelector(state => state.auth_reducer.is_authenticated);
+    const isAuthenticated = useSelector(isAuthenticated => isAuthenticated.auth_reducer.is_authenticated);
+    const profile = useSelector(profile => profile.auth_reducer.profile);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -16,6 +17,15 @@ const MainNavButtons = (props) => {
         history.push("/")
     }
 
+    useEffect(() => {
+        if(!profile){
+            console.log("Triggered due to empty profile",profile)
+            return log_out()
+        }
+       
+    }, [profile])
+
+
     //const profile = useSelector(profile => profile.auth_reducer.profile);
     
     return (
@@ -24,7 +34,7 @@ const MainNavButtons = (props) => {
                 <span><Link className="nav-link" to="/">Home</Link></span>
                 <span><Link className="nav-link" to="/stats">Stats</Link></span>
                 <span><Link className="nav-link" to="/profile">Profile</Link></span>
-                {state ? 
+                {isAuthenticated ? 
                 <span onClick={() => log_out()} >Log Out</span> :
                 <span onClick={() => props.auth.login()} >Log In</span>
                 }
@@ -43,7 +53,7 @@ const MainNavButtons = (props) => {
                     <Link className="nav-link" to="/profile">
                     <span>Profile</span>
                     </Link>
-                    {state ? 
+                    {isAuthenticated ? 
                     <span className="log_in_out" onClick={() => log_out()} >Log Out</span> :
                     <span className="log_in_out" onClick={() => props.auth.login()} >Log In</span>
                     }

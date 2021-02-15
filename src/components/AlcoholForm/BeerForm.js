@@ -18,7 +18,7 @@ const BeerForm = () => {
     const handlePostDrink = () => {
         dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false});
         console.log("beerForm",userDrinkItem)
-        axios.patch(`${config.API_ENDPOINT}/patch/beer`,{dbUserId,userDrinkItem})
+        axios.patch(`${config.API_ENDPOINT}/patch/beer`,{dbUserId,userDrinkItem});
     };
 
     const handleDrink = () => {
