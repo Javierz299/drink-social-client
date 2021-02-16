@@ -8,7 +8,7 @@ import axios from 'axios';
 import './alcoholForm.css'
 const BeerForm = () => {
    
-    const profile = useSelector(profile => profile.auth_reducer.profile);
+    //const profile = useSelector(profile => profile.auth_reducer.profile);
     const dbUserId = useSelector(id => id.auth_reducer.dbUserId);
     const userDrinkItem = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[0]);
     const userDrinkMessage = useSelector(userDrinkMessage => userDrinkMessage.user_reducer.drink_item[1]);

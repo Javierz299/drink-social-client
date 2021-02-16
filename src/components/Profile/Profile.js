@@ -20,6 +20,7 @@ const ProtectedRoute = () => {
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
 
     const dispatch = useDispatch();
+
     useEffect( () => {
         //send an intial post for all drink tables here?
         //once user goes to profile route we'll send it
@@ -39,11 +40,12 @@ const ProtectedRoute = () => {
                setTimeout(() => {
                 axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
                 .then((res) => dispatch({type: DB_USER_ID, payload: res.data.id}))
-               }, 400);//delay for initial post of new user and getting id. need time to set new user in db before fetching id.
+               }, 400);//delay for initial post of new user and getting id. 
+                        //need time to set new user in db before fetching id.
            }
         if(dbUserId){
-        //we wait to get user id to make our initial post for them
-        axios.post(`${config.API_ENDPOINT}/post/userDrinkItem`,{ user_id: dbUserId, ...initialDrinkValues})
+        //we wait to get user id to make our initial post for user
+        axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialDrinkValues})
         }
        console.log('profile',newProfile,dbUserId)
     
@@ -54,13 +56,15 @@ const ProtectedRoute = () => {
             {/*add different spinner for loading profile currently set as authcallback */
             !dbUserId ? <AuthCallBack /> :
             <div className="profile-container-description" >
-                <img onClick={() => console.log("show total number of drinks")} src={profile.picture} alt="pic" />
-                <h3>{
-                profile.name.substring(0,profile.name.indexOf("@")) ||
-                profile.name
-                }</h3>
-                
-                   {console.log("profile",profile)}
+                <div className="profile-description">
+                    <img onClick={() => console.log("show total number of drinks")} src={profile.picture} alt="pic" />
+                    <h3>
+                        {
+                        profile.name.substring(0,profile.name.indexOf("@")) ||
+                        profile.name
+                        }
+                    </h3>
+                </div>
                 <div>
                     <BeerCarousel />
                     <br/>

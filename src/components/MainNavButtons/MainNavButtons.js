@@ -1,4 +1,4 @@
-import React, { useisAuthenticated, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 
@@ -7,7 +7,7 @@ import './mainNavButtons.css';
 const MainNavButtons = (props) => {
     let [toggle, setToggle] = useState(false);
     const isAuthenticated = useSelector(isAuthenticated => isAuthenticated.auth_reducer.is_authenticated);
-    const profile = useSelector(profile => profile.auth_reducer.profile);
+    //const profile = useSelector(profile => profile.auth_reducer.profile);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -16,17 +16,6 @@ const MainNavButtons = (props) => {
         dispatch({type: "LOG_OUT"});
         history.push("/")
     }
-
-    useEffect(() => {
-        if(!profile){
-            console.log("Triggered due to empty profile",profile)
-            return log_out()
-        }
-       
-    }, [profile])
-
-
-    //const profile = useSelector(profile => profile.auth_reducer.profile);
     
     return (
         <div id="main-nav-container">
