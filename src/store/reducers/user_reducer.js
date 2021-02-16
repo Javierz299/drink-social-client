@@ -7,7 +7,7 @@ const initialState = {
     submit_liquor_drink_form: false,
     submit_binge_drink_form: false,
     drink_item: '',
-    allDrinkValues: []
+    allDrinkValues: null,
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -43,6 +43,12 @@ const AuthReducer = (state = initialState, action) => {
                     ...state,
                     drink_item: action.payload,
                 }
+        case ACTION_TYPES.GET_ALL_DRINK_VALUES:
+                console.log('USER REDUCER ALL DRINKS',action.payload)
+                return {
+                    ...state,
+                    allDrinkValues: action.payload,
+                    }
         default:
             return state;
     }

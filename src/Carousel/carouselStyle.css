@@ -13,6 +13,10 @@ button.rec-dot{
     box-shadow: 0 0 1px 3px rgb(36, 36, 36);
 }
 
+button.rec-dot_active{
+    box-shadow: 0 0 1px 3px rgb(250, 223, 147);
+}
+
 button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus{
     box-shadow: 0 0 1px 3px rgb(250, 223, 147);
 }

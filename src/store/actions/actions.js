@@ -44,6 +44,13 @@ export const drink_item = (item) => {
     }
 }
 
+export const get_all_drink_values = (drinks) => {
+    return {
+        type: ACTION_TYPES.GET_ALL_DRINK_VALUES,
+        payload: drinks
+    }
+}
+
 export const db_user_id = (userId) => {
     return {
         type: ACTION_TYPES.DB_USER_ID,

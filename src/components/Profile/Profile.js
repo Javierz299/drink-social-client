@@ -15,11 +15,12 @@ import './profile.css';
 
 import axios from 'axios';
 import config from '../../config';
-import { DB_USER_ID } from '../../store/actions/action_types';
+import { DB_USER_ID, GET_ALL_DRINK_VALUES } from '../../store/actions/action_types';
 
 const ProtectedRoute = () => {
     const profile = useSelector(profile => profile.auth_reducer.profile);   
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
+    const allDrinks = useSelector(allDrinks => allDrinks.user_reducer.allDrinkValues);
 
     const dispatch = useDispatch();
 
@@ -48,19 +49,22 @@ const ProtectedRoute = () => {
 
         //we wait to get user id to make our initial post for user
         if(dbUserId){
-        axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
-        axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
-        axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
-        axios.post(`${config.API_ENDPOINT}/post/userLiquorItem`,{ user_id: dbUserId, ...initialLiquorPost})
-        axios.post(`${config.API_ENDPOINT}/post/userBingeItem`,{ user_id: dbUserId, ...initialBingePost})
-
-        setTimeout(() => {
-            console.log("get drinks")
             axios.get(`${config.API_ENDPOINT}/get/allDrinks/${dbUserId}`)
-                .then(res => console.log('drink values', res))
-        }, 500);
-        }
-       console.log('profile',newProfile,dbUserId)
+                .then(res => {
+                    if(JSON.stringify(res.data) === "{}"){
+                        console.log("else post initila values")
+                        const beerPost = axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
+                        const cocktailPost = axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
+                        const winePost = axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
+                        const liquorPost = axios.post(`${config.API_ENDPOINT}/post/userLiquorItem`,{ user_id: dbUserId, ...initialLiquorPost})
+                        const bingePost = axios.post(`${config.API_ENDPOINT}/post/userBingeItem`,{ user_id: dbUserId, ...initialBingePost})
+                        axios.all([beerPost,cocktailPost,winePost,liquorPost,bingePost])
+                    } else {
+                        dispatch({type: GET_ALL_DRINK_VALUES, payload: res.data})
+                    }
+                })
+        } 
+       console.log('profile',newProfile,dbUserId,allDrinks);
     
     }, [profile,dbUserId])//useEffect will re-render once there is a change
     
