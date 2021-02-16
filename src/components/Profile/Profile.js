@@ -51,7 +51,7 @@ const ProtectedRoute = () => {
         axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
         axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
         axios.post(`${config.API_ENDPOINT}/post/userLiquorItem`,{ user_id: dbUserId, ...initialLiquorPost})
-
+        axios.post(`${config.API_ENDPOINT}/post/userBingeItem`,{ user_id: dbUserId, ...initialBingePost})
         }
        console.log('profile',newProfile,dbUserId)
     
@@ -59,10 +59,7 @@ const ProtectedRoute = () => {
     
     return (
         <div id="profile-container" >
-            {!profile && <AuthCallBack /> ? <div>If you're seeing this please sign out and back in.</div> : 
-            // if profile goes back to null and Loading renders, then profile state went back to null. 
-
-            // else check for users id and render profile
+            {
                 !dbUserId ? <AuthCallBack /> :
                 <div className="profile-container-description" >
                     <div className="profile-description">
@@ -86,7 +83,6 @@ const ProtectedRoute = () => {
                         <BingeCarousel />
                     </div>
                 </div>
-                
             }
             
             {/* details of drinks*/}
