@@ -49,6 +49,8 @@ const ProtectedRoute = () => {
         if(dbUserId){
         axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
         axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
+        axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
+
         }
        console.log('profile',newProfile,dbUserId)
     
@@ -56,7 +58,7 @@ const ProtectedRoute = () => {
     
     return (
         <div id="profile-container" >
-            {!profile && <AuthCallBack /> ? <div>Something went wrong</div> : 
+            {!profile && <AuthCallBack /> ? <div>If you're seeing this please sign out and back in.</div> : 
             // if profile goes back to null and Loading renders, then profile state went back to null. 
 
             // else check for users id and render profile
