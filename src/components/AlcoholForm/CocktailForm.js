@@ -7,17 +7,15 @@ import axios from 'axios';
 
 import './alcoholForm.css'
 const CocktailForm = () => {
-    const profile = useSelector(profile => profile.auth_reducer.profile);
+    const dbUserId = useSelector(id => id.auth_reducer.dbUserId);
     const userDrinkItem = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[0]);
     const userDrinkMessage = useSelector(userDrinkMessage => userDrinkMessage.user_reducer.drink_item[1]);
-    const userDrinkAmount = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[2]);
+    //const userDrinkAmount = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[2]);
     const dispatch = useDispatch();
 
     const handlePostDrink = () => {
-        const userSubmission = {email: profile.email, drink: userDrinkItem, amount: userDrinkAmount}
         dispatch({type: ACTION_TYPES.SUBMIT_COCKTAIL_DRINK, payload: false})
-        // axios.post(`${config.API_ENDPOINT}/post/userDrinkItem`,userSubmission)
-        //     .then(res => console.log())
+        axios.patch(`${config.API_ENDPOINT}/patch/cocktail`,{dbUserId,userDrinkItem});
     }
 
     const handleDrink = () => {

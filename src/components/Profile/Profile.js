@@ -7,7 +7,9 @@ import LiquorCarousel from '../DrinkCarousels/LiquorCarousel/LiquorCarousel';
 import CocktailCarousel from '../DrinkCarousels/CocktailCarousel/CocktailCarousel';
 import BingeCarousel from '../DrinkCarousels/BingeCarousel/BingeCarousel';
 
-import initialDrinkValues from '../../LiquorStore/DrinkCarouselValues';
+import { initialBeerPost, initialCocktailPost } from '../../LiquorStore/DrinkCarouselValues';
+import { initialWinePost, initialLiquorPost } from '../../LiquorStore/DrinkCarouselValues';
+import { initialBingePost } from '../../LiquorStore/DrinkCarouselValues';
 
 import './profile.css';
 
@@ -43,9 +45,10 @@ const ProtectedRoute = () => {
                }, 400);//delay for initial post of new user and getting id. 
                         //need time to set new user in db before fetching id.
            }
-        if(dbUserId){
         //we wait to get user id to make our initial post for user
-        axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialDrinkValues})
+        if(dbUserId){
+        axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
+        axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
         }
        console.log('profile',newProfile,dbUserId)
     
@@ -53,31 +56,36 @@ const ProtectedRoute = () => {
     
     return (
         <div id="profile-container" >
-            {/*add different spinner for loading profile currently set as authcallback */
-            !dbUserId ? <AuthCallBack /> :
-            <div className="profile-container-description" >
-                <div className="profile-description">
-                    <img onClick={() => console.log("show total number of drinks")} src={profile.picture} alt="pic" />
-                    <h3>
-                        {
-                        profile.name.substring(0,profile.name.indexOf("@")) ||
-                        profile.name
-                        }
-                    </h3>
+            {!profile && <AuthCallBack /> ? <div>Something went wrong</div> : 
+            // if profile goes back to null and Loading renders, then profile state went back to null. 
+
+            // else check for users id and render profile
+                !dbUserId ? <AuthCallBack /> :
+                <div className="profile-container-description" >
+                    <div className="profile-description">
+                        <img onClick={() => console.log("show total number of drinks")} src={profile.picture} alt="pic" />
+                        <h3>
+                            {
+                            profile.name.substring(0,profile.name.indexOf("@")) ||
+                            profile.name
+                            }
+                        </h3>
+                    </div>
+                    <div>
+                        <BeerCarousel />
+                        <br/>
+                        <CocktailCarousel />
+                        <br/>
+                        <WineCarousel />
+                        <br/>
+                        <LiquorCarousel />
+                        <br/>
+                        <BingeCarousel />
+                    </div>
                 </div>
-                <div>
-                    <BeerCarousel />
-                    <br/>
-                    <CocktailCarousel />
-                    <br/>
-                    <WineCarousel />
-                    <br/>
-                    <LiquorCarousel />
-                    <br/>
-                    <BingeCarousel />
-                </div>
-            </div>
+                
             }
+            
             {/* details of drinks*/}
    
         </div>
