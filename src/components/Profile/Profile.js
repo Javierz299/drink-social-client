@@ -45,6 +45,7 @@ const ProtectedRoute = () => {
                }, 400);//delay for initial post of new user and getting id. 
                         //need time to set new user in db before fetching id.
            }
+
         //we wait to get user id to make our initial post for user
         if(dbUserId){
         axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
@@ -52,6 +53,12 @@ const ProtectedRoute = () => {
         axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
         axios.post(`${config.API_ENDPOINT}/post/userLiquorItem`,{ user_id: dbUserId, ...initialLiquorPost})
         axios.post(`${config.API_ENDPOINT}/post/userBingeItem`,{ user_id: dbUserId, ...initialBingePost})
+
+        setTimeout(() => {
+            console.log("get drinks")
+            axios.get(`${config.API_ENDPOINT}/get/allDrinks/${dbUserId}`)
+                .then(res => console.log('drink values', res))
+        }, 500);
         }
        console.log('profile',newProfile,dbUserId)
     
