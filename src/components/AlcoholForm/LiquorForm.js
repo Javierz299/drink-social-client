@@ -17,6 +17,7 @@ const LiquorForm = () => {
     const handlePostDrink = () => {
         dispatch({type: ACTION_TYPES.SUBMIT_LIQUOR_DRINK, payload: false})
         axios.patch(`${config.API_ENDPOINT}/patch/liquor`,{dbUserId,userDrinkItem})
+        dispatch({type: ACTION_TYPES.TOTAL_OF_ALL_DRINKS, payload: +1})
     }
 
     const handleDrink = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector, useDispatch } from 'react-redux';
 import BeerCarousel from '../DrinkCarousels/BeerCarousel/BeerCarousel';
@@ -15,13 +15,15 @@ import './profile.css';
 
 import axios from 'axios';
 import config from '../../config';
-import { DB_USER_ID, GET_ALL_DRINK_VALUES } from '../../store/actions/action_types';
+
+import { addAllDrinks } from '../../utils/addAllDrinks/addAllDrinks'
+import { DB_USER_ID, GET_ALL_DRINK_VALUES, TOTAL_OF_ALL_DRINKS } from '../../store/actions/action_types';
 
 const ProtectedRoute = () => {
     const profile = useSelector(profile => profile.auth_reducer.profile);   
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
     const allDrinks = useSelector(allDrinks => allDrinks.user_reducer.allDrinkValues);
-
+    const combinedDrinks = useSelector(combinedDrinks => combinedDrinks.user_reducer.totalOfAllDrinks);
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -49,8 +51,11 @@ const ProtectedRoute = () => {
 
         //we wait to get user id to make our initial post for user
         if(dbUserId){
-            axios.get(`${config.API_ENDPOINT}/get/allDrinks/${dbUserId}`)
+                //get all drinks from user if any, if not post initial values for all
+                axios.get(`${config.API_ENDPOINT}/get/allDrinks/${dbUserId}`)
                 .then(res => {
+                    // while fetching if we get back empty obj, means first time signed up
+                    // no initial values
                     if(JSON.stringify(res.data) === "{}"){
                         console.log("else post initila values")
                         const beerPost = axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
@@ -58,15 +63,18 @@ const ProtectedRoute = () => {
                         const winePost = axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
                         const liquorPost = axios.post(`${config.API_ENDPOINT}/post/userLiquorItem`,{ user_id: dbUserId, ...initialLiquorPost})
                         const bingePost = axios.post(`${config.API_ENDPOINT}/post/userBingeItem`,{ user_id: dbUserId, ...initialBingePost})
-                        axios.all([beerPost,cocktailPost,winePost,liquorPost,bingePost])
+                        return axios.all([beerPost,cocktailPost,winePost,liquorPost,bingePost])
                     } else {
+                        //else if we get back data, store in state
+                        console.log("else")
                         dispatch({type: GET_ALL_DRINK_VALUES, payload: res.data})
+                        const totalDrinks = addAllDrinks(res.data)
+                        dispatch({type: TOTAL_OF_ALL_DRINKS, payload: totalDrinks})
                     }
-                })
-        } 
-       console.log('profile',newProfile,dbUserId,allDrinks);
-    
-    }, [profile,dbUserId])//useEffect will re-render once there is a change
+                });
+            };
+       console.log('profile',newProfile,dbUserId,allDrinks,combinedDrinks);
+    }, [profile,dbUserId,combinedDrinks])//useEffect will re-render once there is a change
     
     return (
         <div id="profile-container" >
@@ -81,6 +89,10 @@ const ProtectedRoute = () => {
                             profile.name
                             }
                         </h3>
+                        <div>Friends: none</div>
+                        <div>Drinks: {combinedDrinks ? combinedDrinks : 0}</div>
+                        <div>last: "drink"</div>
+                        <div>Total Value: 0</div>
                     </div>
                     <div>
                         <BeerCarousel />

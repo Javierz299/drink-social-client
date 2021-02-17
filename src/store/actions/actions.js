@@ -51,6 +51,13 @@ export const get_all_drink_values = (drinks) => {
     }
 }
 
+export const total_of_drinks = (total) => {
+    return {
+        type: ACTION_TYPES.TOTAL_OF_ALL_DRINKS,
+        payload: total
+    }
+}
+
 export const db_user_id = (userId) => {
     return {
         type: ACTION_TYPES.DB_USER_ID,

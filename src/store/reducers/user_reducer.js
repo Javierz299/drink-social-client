@@ -8,6 +8,7 @@ const initialState = {
     submit_binge_drink_form: false,
     drink_item: '',
     allDrinkValues: null,
+    totalOfAllDrinks: 0,
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -48,6 +49,12 @@ const AuthReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     allDrinkValues: action.payload,
+                    }
+        case ACTION_TYPES.TOTAL_OF_ALL_DRINKS:
+                console.log('USER REDUCER DRINK TOTAL',action.payload)
+                return {
+                    ...state,
+                    totalOfAllDrinks: action.payload,
                     }
         default:
             return state;

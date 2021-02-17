@@ -13,7 +13,7 @@ const liquorStore = {
     "12": ["seven_percent","7% beer. Climbing up there",1.7],
     "13": ["eight_percent","8% beer. Hope it tastes good.",2.3],
     "14": ["nine_percent","9% beer. Might as well make it an even 10. Jk, enjoy!",2.7],
-    "15": ["10_perecnet","10%^. Whoa, we got a badass over here",3.5],
+    "15": ["ten_percent","10%^. Whoa, we got a badass over here",3.5],
     "16": ["margarita", "Margarita.. that does sound good",1.5],
     "17": ["bloody_mary","Bloody Mary, Bloody Mary, Bloody Mary",1],
     "18": ["mimosa", "Mimosa, take advantage of the bottomless",1],
