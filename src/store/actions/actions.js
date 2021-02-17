@@ -58,6 +58,13 @@ export const total_of_drinks = (total) => {
     }
 }
 
+export const set_last_drink_item = (item) => {
+    return {
+        type: ACTION_TYPES.SET_LAST_DRINK_ITEM,
+        payload: item
+    }
+}
+
 export const db_user_id = (userId) => {
     return {
         type: ACTION_TYPES.DB_USER_ID,

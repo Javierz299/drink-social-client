@@ -24,6 +24,7 @@ const ProtectedRoute = () => {
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
     const allDrinks = useSelector(allDrinks => allDrinks.user_reducer.allDrinkValues);
     const combinedDrinks = useSelector(combinedDrinks => combinedDrinks.user_reducer.totalOfAllDrinks);
+    const lastDrinkItem = useSelector(lastDrinkItem => lastDrinkItem.user_reducer.lastDrinkItem);
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -74,6 +75,7 @@ const ProtectedRoute = () => {
                 });
             };
        console.log('profile',newProfile,dbUserId,allDrinks,combinedDrinks);
+       console.log('LAST DRINK ITEM',lastDrinkItem)
     }, [profile,dbUserId,combinedDrinks])//useEffect will re-render once there is a change
     
     return (
@@ -91,7 +93,7 @@ const ProtectedRoute = () => {
                         </h3>
                         <div>Friends: none</div>
                         <div>Drinks: {combinedDrinks ? combinedDrinks : 0}</div>
-                        <div>last: "drink"</div>
+                        <div>last: {!lastDrinkItem ? localStorage.getItem("last") : lastDrinkItem}</div>
                         <div>Total Value: 0</div>
                     </div>
                     <div>

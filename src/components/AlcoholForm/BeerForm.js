@@ -19,6 +19,9 @@ const BeerForm = () => {
         dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false});
         axios.patch(`${config.API_ENDPOINT}/patch/beer`,{dbUserId,userDrinkItem});
         dispatch({type: ACTION_TYPES.TOTAL_OF_ALL_DRINKS, payload: +1})
+        console.log("userdrink item",userDrinkItem)
+        dispatch({type: ACTION_TYPES.SET_LAST_DRINK_ITEM, payload: userDrinkItem})
+        localStorage.setItem("last",(userDrinkItem))
     };
 
     const handleDrink = () => {

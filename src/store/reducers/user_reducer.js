@@ -9,6 +9,7 @@ const initialState = {
     drink_item: '',
     allDrinkValues: null,
     totalOfAllDrinks: 0,
+    lastDrinkItem: '',
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -49,13 +50,19 @@ const AuthReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     allDrinkValues: action.payload,
-                    }
+                }
         case ACTION_TYPES.TOTAL_OF_ALL_DRINKS:
                 console.log('USER REDUCER DRINK TOTAL',action.payload)
                 return {
                     ...state,
                     totalOfAllDrinks: action.payload,
-                    }
+                }
+        case ACTION_TYPES.SET_LAST_DRINK_ITEM:
+                console.log('USER REDUCER LAST DRINK ITEM',action.payload)
+                return {
+                    ...state,
+                    lastDrinkItem: action.payload,
+                }
         default:
             return state;
     }
