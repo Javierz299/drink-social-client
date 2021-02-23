@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector, useDispatch } from 'react-redux';
+
 import BeerCarousel from '../DrinkCarousels/BeerCarousel/BeerCarousel';
 import WineCarousel from '../DrinkCarousels/WineCarousel/WineCarousel';
 import LiquorCarousel from '../DrinkCarousels/LiquorCarousel/LiquorCarousel';
 import CocktailCarousel from '../DrinkCarousels/CocktailCarousel/CocktailCarousel';
 import BingeCarousel from '../DrinkCarousels/BingeCarousel/BingeCarousel';
+
+import ProfileDetails from '../ProfileDetails/ProfileDetails';
 
 import { initialBeerPost, initialCocktailPost } from '../../LiquorStore/DrinkCarouselValues';
 import { initialWinePost, initialLiquorPost } from '../../LiquorStore/DrinkCarouselValues';
@@ -20,9 +23,9 @@ import { addAllDrinks } from '../../utils/addAllDrinks/addAllDrinks'
 import { DB_USER_ID, GET_ALL_DRINK_VALUES, TOTAL_OF_ALL_DRINKS } from '../../store/actions/action_types';
 
 const ProtectedRoute = () => {
+    const [details, toggleDetails] = useState(false)
     const profile = useSelector(profile => profile.auth_reducer.profile);   
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
-    const allDrinks = useSelector(allDrinks => allDrinks.user_reducer.allDrinkValues);
     const combinedDrinks = useSelector(combinedDrinks => combinedDrinks.user_reducer.totalOfAllDrinks);
     const lastDrinkItem = useSelector(lastDrinkItem => lastDrinkItem.user_reducer.lastDrinkItem);
     const dispatch = useDispatch();
@@ -80,11 +83,11 @@ const ProtectedRoute = () => {
     
     return (
         <div id="profile-container" >
-            {
-                !dbUserId ? <AuthCallBack /> :
+            { !dbUserId ? <AuthCallBack /> :
                 <div className="profile-container-description" >
+                    {!details ? 
                     <div className="profile-description">
-                        <img onClick={() => console.log("show total number of drinks")} src={profile.picture} alt="pic" />
+                        <img onClick={() => toggleDetails(!details)} src={profile.picture} alt="pic" />
                         <h3>
                             {
                             profile.name.substring(0,profile.name.indexOf("@")) ||
@@ -96,8 +99,10 @@ const ProtectedRoute = () => {
                         <div>last drink: {!lastDrinkItem ? localStorage.getItem("last") : lastDrinkItem}</div>
                         <div>{!localStorage.getItem("post") ? "none" : localStorage.getItem("post").slice(0,21)}</div>
                         {/* <div>Total Value: 0</div> */}
-                    </div>
-                    <div>
+                    </div> : 
+                    <ProfileDetails />
+                    }
+                        <div>
                         <BeerCarousel />
                         <br/>
                         <CocktailCarousel />
