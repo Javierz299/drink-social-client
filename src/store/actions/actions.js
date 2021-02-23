@@ -10,7 +10,7 @@ export const log_out = () => {
     return {
         type: ACTION_TYPES.LOG_OUT
     }
-}
+};
 
 export const login_failure = () => {
     return {
@@ -35,39 +35,39 @@ export const submit_beer_drink = () => {
     return {
         type: ACTION_TYPES.SUBMIT_BEER_DRINK
     }
-}
+};
 
 export const drink_item = (item) => {
     return {
         type: ACTION_TYPES.DRINK_ITEM,
         payload: item
     }
-}
+};
 
 export const get_all_drink_values = (drinks) => {
     return {
         type: ACTION_TYPES.GET_ALL_DRINK_VALUES,
         payload: drinks
     }
-}
+};
 
 export const total_of_drinks = (total) => {
     return {
         type: ACTION_TYPES.TOTAL_OF_ALL_DRINKS,
         payload: total
     }
-}
+};
 
 export const set_last_drink_item = (item) => {
     return {
         type: ACTION_TYPES.SET_LAST_DRINK_ITEM,
         payload: item
     }
-}
+};
 
 export const db_user_id = (userId) => {
     return {
         type: ACTION_TYPES.DB_USER_ID,
         payload: userId
     }
-}
+};
