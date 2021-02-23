@@ -2,6 +2,8 @@ import React from 'react';
 import config from '../../config';
 import { useDispatch, useSelector } from 'react-redux';
 import * as ACTION_TYPES from '../../store/actions/action_types';
+import { date } from '../../utils/lastPost/lastPost'
+
 
 import axios from 'axios';
 
@@ -15,6 +17,9 @@ const WineForm = () => {
     const dispatch = useDispatch();
 
     const handlePostDrink = () => {
+        localStorage.setItem("last",(userDrinkItem));
+        localStorage.setItem('post', date);
+
         dispatch({type: ACTION_TYPES.SUBMIT_WINE_DRINK, payload: false})
         axios.patch(`${config.API_ENDPOINT}/patch/wine`,{dbUserId,userDrinkItem})
         dispatch({type: ACTION_TYPES.TOTAL_OF_ALL_DRINKS, payload: +1})

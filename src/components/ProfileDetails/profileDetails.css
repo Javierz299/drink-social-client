@@ -1,0 +1,19 @@
+.drink-detail-container{
+    text-align: left;
+}
+
+.beer-details{
+   border-bottom: 1px solid black;
+}
+.cocktail-details{
+    border-bottom: 1px solid black;
+ }
+ .wine-details{
+    border-bottom: 1px solid black;
+ }
+ .liquor-details{
+    border-bottom: 1px solid black;
+ }
+ .binge-details{
+    border-bottom: 1px solid black;
+ }

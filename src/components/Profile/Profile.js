@@ -100,7 +100,7 @@ const ProtectedRoute = () => {
                         <div>{!localStorage.getItem("post") ? "none" : localStorage.getItem("post").slice(0,21)}</div>
                         {/* <div>Total Value: 0</div> */}
                     </div> : 
-                    <ProfileDetails />
+                    <ProfileDetails toggleDetails={toggleDetails}/>
                     }
                         <div>
                         <BeerCarousel />
