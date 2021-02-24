@@ -21,7 +21,7 @@ const WelcomePage = () => {
             </div>
             <section className="application-description">
                 <div>
-                    <p>At Drink Social you'll be able to keep track of drinks, Follow friends and see popular drink choices by users.</p>
+                    <p>At Drink Social you'll be able to keep track of drinks, follow friends and see popular drink choices by users.</p>
                     <p>Click on Guest login for a sneak peak into the profile.</p>
                     <p>If you'd like join, feel free to head to the login page and sign up!</p>
                 </div>
@@ -34,7 +34,9 @@ const WelcomePage = () => {
                     <img src={howToMobile} alt="mobile pic" />
                 </div>
                 <div>
-                    how to use
+                <p>At Drink Social you'll be able to keep track of drinks, follow friends and see popular drink choices by users.</p>
+                    <p>Click on Guest login for a sneak peak into the profile.</p>
+                    <p>If you'd like join, feel free to head to the login page and sign up!</p>
                 </div>
             </section>
             <section className="application-upcoming-features">
