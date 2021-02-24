@@ -9,7 +9,6 @@ import axios from 'axios';
 
 import './alcoholForm.css'
 const BeerForm = () => {
-   
     //const profile = useSelector(profile => profile.auth_reducer.profile);
     const dbUserId = useSelector(id => id.auth_reducer.dbUserId);
     const userDrinkItem = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[0]);
@@ -19,7 +18,7 @@ const BeerForm = () => {
 
     const handlePostDrink = () => {
         localStorage.setItem("last",(userDrinkItem));
-        localStorage.setItem('post', date)
+        localStorage.setItem('post', date);
         console.log("BEER TIME", date)
 
         dispatch({type: ACTION_TYPES.SUBMIT_BEER_DRINK, payload: false});

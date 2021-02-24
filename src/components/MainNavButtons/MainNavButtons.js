@@ -21,7 +21,7 @@ const MainNavButtons = (props) => {
         <div id="main-nav-container">
            <div id="main-nav-buttons">
                 <span><Link className="nav-link" to="/">Home</Link></span>
-                <span><Link className="nav-link" to="/stats">Stats</Link></span>
+                <span><Link className="nav-link" to="/stats">Public</Link></span>
                 <span><Link className="nav-link" to="/profile">Profile</Link></span>
                 {isAuthenticated ? 
                 <span className="log_in_out" 

@@ -1,0 +1,54 @@
+#welcome-page{
+    /* border: 1px solid red; */
+    background: rgb(230, 230, 230);
+    color: black;
+}
+
+.banner{
+    border-bottom: 1px solid black;
+}
+
+.application-description{
+    padding: 6px;
+    height: auto;
+    border-bottom: 1px solid black;
+    -webkit-box-shadow:0px 1px 1px #606060;
+ -moz-box-shadow:0px 1px 1px #606060;
+ box-shadow:0px 1px 1px #606060;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.application-description-pic{
+    opacity: 0.7;
+}
+
+.application-description-pic > img{
+    width: 400px;
+    height:300px;
+}
+.application-how-to{
+    padding: 6px;
+    height: auto;
+    border-bottom: 1px solid black;
+    -webkit-box-shadow:0px 1px 1px #606060;
+    -moz-box-shadow:0px 1px 1px #606060;
+    box-shadow:0px 1px 1px #606060;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+.application-hot-to-pic{
+   opacity: 0.7;
+}
+
+.application-hot-to-pic > img{
+    width: 400px;
+    height:300px;
+}
+.application-upcoming-features{
+    height: auto;
+    border-bottom: 1px solid black;
+    -webkit-box-shadow:0px 1px 1px #606060;
+    -moz-box-shadow:0px 1px 1px #606060;
+    box-shadow:0px 1px 1px #606060;
+}
