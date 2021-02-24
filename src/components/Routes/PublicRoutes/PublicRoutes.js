@@ -9,14 +9,14 @@ import PrivateRoute from '../PrivateRoute';
 import ProtectedRoute from '../../Profile/Profile';
 import WelcomePage from '../../WelcomPage/WelcomePage';
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const auth = new Auth();
 
 const PublicRoutes = () => {
-    //const profile = useSelector(profile => profile)
+    const guestLogin = useSelector(guest => guest.user_reducer.guest_login);
     const dispatch = useDispatch();
-
+    console.log('guest login',guestLogin)
     // silent authentication, runs every route change
     // also keeps logged out button as "log out" on refresh
     useEffect(() => {
@@ -46,7 +46,7 @@ const PublicRoutes = () => {
                     <Route path="/callback" render={(props) => {auth.handleAuthentication(props); return <AuthCallBack props={props} />}} />
                     <Route path="/authcheck" render={() => <AuthCheck auth={auth} />} />
                 
-                    <PrivateRoute path="/profile" component={ProtectedRoute} auth={auth}/>
+                    <PrivateRoute path="/profile" component={ProtectedRoute} auth={auth} guest={guestLogin}/>
                 </Switch>
         </div>
     )

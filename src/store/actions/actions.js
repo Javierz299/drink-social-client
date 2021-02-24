@@ -71,3 +71,9 @@ export const db_user_id = (userId) => {
         payload: userId
     }
 };
+
+export const guest_login = () => {
+    return {
+        type: ACTION_TYPES.GUEST_LOGIN,
+    }
+}

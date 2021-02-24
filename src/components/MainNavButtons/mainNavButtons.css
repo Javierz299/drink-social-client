@@ -1,5 +1,4 @@
 #main-nav-buttons{
-    border: 1px solid blue;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -12,6 +11,28 @@
     display: none;
 }
 
+.nav-link{
+    text-decoration: none;
+    color: #ffe494;
+}
+
+.nav-link:hover{
+    color:  #fcd972;
+    background: rgba(0, 0, 0, 0.947);
+    border: 1px solid #fce59f;
+}
+
+.log_in_out{
+    cursor: pointer;
+    color: #ffe494;
+}
+
+.log_in_out:hover{
+    color:  #fcd972;
+    background: rgba(0, 0, 0, 0.947);
+    border: 1px solid #fce59f;
+}
+
 @media only screen and (max-width: 600px){
     #main-nav-buttons{
         display: none;
@@ -21,8 +42,7 @@
         display: block;
         align-content: end;
         width: 50px;
-        border: 1px solid black;
-        
+        border: 1px solid black; 
     }
     .main-nav-hide{
         display: none;

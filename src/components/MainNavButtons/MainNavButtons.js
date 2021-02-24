@@ -24,8 +24,10 @@ const MainNavButtons = (props) => {
                 <span><Link className="nav-link" to="/stats">Stats</Link></span>
                 <span><Link className="nav-link" to="/profile">Profile</Link></span>
                 {isAuthenticated ? 
-                <span onClick={() => log_out()} >Log Out</span> :
-                <span onClick={() => props.auth.login()} >Log In</span>
+                <span className="log_in_out" 
+                onClick={() => log_out()} >Log Out</span> :
+                <span className="log_in_out" 
+                onClick={() => props.auth.login()} >Log In</span>
                 }
             </div>
             <div onMouseEnter={() => setToggle(!toggle)}

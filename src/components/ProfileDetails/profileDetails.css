@@ -1,5 +1,6 @@
 .drink-detail-container{
     text-align: left;
+    cursor: pointer;
 }
 
 .beer-details{

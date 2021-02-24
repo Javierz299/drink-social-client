@@ -14,6 +14,7 @@ import { initialBeerPost, initialCocktailPost } from '../../LiquorStore/DrinkCar
 import { initialWinePost, initialLiquorPost } from '../../LiquorStore/DrinkCarouselValues';
 import { initialBingePost } from '../../LiquorStore/DrinkCarouselValues';
 
+import guestPic from '../../FormPicutres/beerpics/beer.png'
 import './profile.css';
 
 import axios from 'axios';
@@ -23,6 +24,7 @@ import { addAllDrinks } from '../../utils/addAllDrinks/addAllDrinks'
 import { DB_USER_ID, GET_ALL_DRINK_VALUES, TOTAL_OF_ALL_DRINKS } from '../../store/actions/action_types';
 
 const ProtectedRoute = () => {
+    const guest = useSelector(guest => guest.user_reducer.guest_login)
     const [details, toggleDetails] = useState(false)
     const profile = useSelector(profile => profile.auth_reducer.profile);   
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
@@ -83,13 +85,15 @@ const ProtectedRoute = () => {
     
     return (
         <div id="profile-container" >
-            { !dbUserId ? <AuthCallBack /> :
+            { !dbUserId && !guest ? <AuthCallBack /> :
                 <div className="profile-container-description" >
                     {!details ? 
                     <div className="profile-description">
-                        <img onClick={() => toggleDetails(!details)} src={profile.picture} alt="pic" />
+                        <img className="profile-img"
+                         onClick={() => toggleDetails(!details)} src={guest ? guestPic : profile.picture} alt="pic"
+                          />
                         <h3>
-                            {
+                            {guest ? "guest" :
                             profile.name.substring(0,profile.name.indexOf("@")) ||
                             profile.name
                             }
@@ -115,9 +119,6 @@ const ProtectedRoute = () => {
                     </div>
                 </div>
             }
-            
-            {/* details of drinks*/}
-   
         </div>
     )
 }

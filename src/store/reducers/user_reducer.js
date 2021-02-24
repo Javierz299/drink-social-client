@@ -10,6 +10,7 @@ const initialState = {
     allDrinkValues: null,
     totalOfAllDrinks: 0,
     lastDrinkItem: '',
+    guest_login: false,
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -62,6 +63,12 @@ const AuthReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     lastDrinkItem: action.payload,
+                }
+        case ACTION_TYPES.GUEST_LOGIN:
+                console.log('GUEST LOGIN')
+                return {
+                    ...state,
+                    guest_login: true,
                 }
         default:
             return state;
