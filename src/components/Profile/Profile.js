@@ -82,7 +82,8 @@ const ProtectedRoute = () => {
        //console.log('profile',newProfile,dbUserId,allDrinks,combinedDrinks);
        console.log('LAST DRINK ITEM',lastDrinkItem)
     }, [profile,dbUserId,combinedDrinks])//useEffect will re-render once there is a change
-    
+    // need to make seperate components "profile-container-description"
+    // & need it to work for guest
     return (
         <div id="profile-container" >
             { !dbUserId && !guest ? <AuthCallBack /> :

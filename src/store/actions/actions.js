@@ -77,3 +77,10 @@ export const guest_login = () => {
         type: ACTION_TYPES.GUEST_LOGIN,
     }
 }
+
+export const guest_drink = (drink) => {
+    return {
+        type: ACTION_TYPES.GUEST_DRINK,
+        payload: drink
+    }
+}

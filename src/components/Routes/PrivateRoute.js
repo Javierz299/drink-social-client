@@ -1,8 +1,8 @@
-import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
-//                                    pass guest login
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
+
 const PrivateRoute = ({component: Component, auth, guest}) => {
-        //                                               || guest login === true
+        //able to access this route with guest login.
    return <Route render={props => auth.isAuthenticated() === true || guest ?
         <Component auth={auth} {...props}/> :
         <Redirect to="/redirect" /> } 

@@ -5,7 +5,10 @@ import '../ProfileDetails/profileDetails.css'
 
 const ProfileDetails = ({toggleDetails}) => {
     const allDrinks = useSelector(allDrinks => allDrinks.user_reducer.allDrinkValues);
+    const guestDrinks = useSelector(guest => guest.guest_reducer.guestTable)
     console.log("ALL DRINKS",allDrinks)
+    console.log("GUEST DRINKS",guestDrinks)
+
     return (
         <div className="drink-detail-container" 
              onClick={() => toggleDetails(false)}
@@ -40,6 +43,7 @@ const ProfileDetails = ({toggleDetails}) => {
                 <p>paloma: {allDrinks.cocktailTable.paloma}</p>
                 <p>daiquiri: {allDrinks.cocktailTable.daiquiri}</p>
                 <p>long island: {allDrinks.cocktailTable.long_island}</p>
+                <p>misc: {allDrinks.cocktailTable.misc}</p>
             </section>
             <section className="wine-details">
                 <p>red wine: {allDrinks.wineTable.red_wine}</p>
@@ -61,7 +65,58 @@ const ProfileDetails = ({toggleDetails}) => {
                 <p>boilermaker: {allDrinks.bingeTable.boilermaker}</p>
             </section>
             </div> :
-        <div> nothing logged. guest </div>
+        <div className="guest-table">
+                <section className="beer-details">
+                <p>beer: {guestDrinks.beer}</p>
+                <p>pint: {guestDrinks.pint_beer}</p>
+                <p>tall beer: {guestDrinks.tall_beer}</p>
+                <p>forty: {guestDrinks.forty}</p>
+                <p>craft: {guestDrinks.craft}</p>
+                <p>craft-pint: {guestDrinks.craft_pint}</p>
+                <p>tall craft: {guestDrinks.craft_tall}</p>
+                <p>seltzer: {guestDrinks.seltzer}</p>
+                <p>tall seltzer: {guestDrinks.tall_seltzer}</p>
+                <p>smirnoff ice: {guestDrinks.smirnoff_ice}</p>
+                <p>6%: {guestDrinks.six_percent}</p>
+                <p>7%: {guestDrinks.seven_percent}</p>
+                <p>8%:: {guestDrinks.eight_percent}</p>
+                <p>9%: {guestDrinks.nine_percent}</p>
+                <p>10%: {guestDrinks.ten_percent}</p>
+            </section>
+            <section className="cocktail-details">
+                <p>margarita: {guestDrinks.margaritia}</p>
+                <p>bloody mary: {guestDrinks.bloody_mary}</p>
+                <p>mimosa: {guestDrinks.mimosa}</p>
+                <p>martini: {guestDrinks.martini}</p>
+                <p>mojito: {guestDrinks.mojito}</p>
+                <p>gin and tonic: {guestDrinks.gin_and_tonic}</p>
+                <p>moscow_mule: {guestDrinks.moscow_mule}</p>
+                <p>paloma: {guestDrinks.paloma}</p>
+                <p>daiquiri: {guestDrinks.daiquiri}</p>
+                <p>long island: {guestDrinks.long_island}</p>
+                <p>misc: {guestDrinks.misc}</p>
+            </section>
+            <section className="wine-details">
+                <p>red wine: {guestDrinks.red_wine}</p>
+                <p>white wine: {guestDrinks.white_wine}</p>
+                <p>sangria: {guestDrinks.sangria}</p>
+                <p>champagne: {guestDrinks.champagne}</p>
+            </section>
+            <section className="liquor-details">
+                <p>tequila shot: {guestDrinks.tequila_shot}</p>
+                <p>vodka shot: {guestDrinks.vodka_shot}</p>
+                <p>whiskey shot: {guestDrinks.whiskey_shot}</p>
+                <p>bourbon: {guestDrinks.bourbon}</p>
+                <p>scotch: {guestDrinks.scotch}</p>
+                <p>brandy: {guestDrinks.brandy}</p>
+            </section>
+            <section className="binge-details">
+                <p>beer bong: {guestDrinks.beer_bong}</p>
+                <p>shotgun: {guestDrinks.shogun}</p>
+                <p>boilermaker: {guestDrinks.boilermaker}</p>
+            </section>
+            
+            </div>
         }
                 
         </div>

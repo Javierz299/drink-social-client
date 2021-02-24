@@ -16,7 +16,8 @@ const auth = new Auth();
 const PublicRoutes = () => {
     const guestLogin = useSelector(guest => guest.user_reducer.guest_login);
     const dispatch = useDispatch();
-    console.log('guest login',guestLogin)
+    console.log('guest login',guestLogin);
+    
     // silent authentication, runs every route change
     // also keeps logged out button as "log out" on refresh
     useEffect(() => {

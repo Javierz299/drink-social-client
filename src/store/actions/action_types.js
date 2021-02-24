@@ -29,3 +29,7 @@ export const TOTAL_OF_ALL_DRINKS = " TOTAL_OF_ALL_DRINKS";
 export const SET_LAST_DRINK_ITEM = "SET_LAST_DRINK_ITEM";
 
 export const GUEST_LOGIN = "GUEST_LOGIN";
+
+export const GUEST_LOGOUT = "GUEST_LOGOUT";
+
+export const GUEST_DRINK = "GUEST_DRINK";
