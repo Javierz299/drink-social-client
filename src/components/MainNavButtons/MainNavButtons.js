@@ -7,7 +7,6 @@ import './mainNavButtons.css';
 const MainNavButtons = (props) => {
     let [toggle, setToggle] = useState(false);
     const isAuthenticated = useSelector(isAuthenticated => isAuthenticated.auth_reducer.is_authenticated);
-    //const profile = useSelector(profile => profile.auth_reducer.profile);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -39,7 +38,7 @@ const MainNavButtons = (props) => {
                         <span>Home</span>
                     </Link>
                     <Link className="nav-link" to="/stats">
-                    <span>Stats</span>
+                    <span>Public</span>
                     </Link>
                     <Link className="nav-link" to="/profile">
                     <span>Profile</span>
