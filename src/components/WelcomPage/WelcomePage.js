@@ -25,7 +25,7 @@ const WelcomePage = () => {
                     Guest Login
                 </button>
                   }
-                {guestLogin ? <h4>You now have access to the profile. No data will be saved. Login to have full access</h4> : null}
+                {guestLogin ? <h4>You now have access to the profile. Not all features will be availabe. Login to have full access</h4> : null}
             </div>
             <section className="application-description">
                 <div className="application-about">

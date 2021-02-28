@@ -86,8 +86,7 @@ const ProtectedRoute = () => {
        
             
     }, [profile,dbUserId,userDrinkAmount])//useEffect will re-render once there is a change
-    // need to make seperate components "profile-container-description"
-    // & need it to work for guest
+    
     return (
         <div id="profile-container" >
             { !dbUserId && !guest ? <Loading /> :

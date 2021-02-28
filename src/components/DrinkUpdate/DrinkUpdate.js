@@ -10,7 +10,7 @@ const DrinkUpdate = () => {
         {/* <div>Friends: none</div> */}
         <div>Drinks: {combinedDrinks ? combinedDrinks : 0}</div>
         <div>last drink: {!lastDrinkItem ? localStorage.getItem("last") : lastDrinkItem}</div>
-        <div>{!localStorage.getItem("post") ? "none" : localStorage.getItem("post").slice(0,21)}</div>
+        <div>{!localStorage.getItem("post") ? "** empty **" : localStorage.getItem("post").slice(0,21)}</div>
         {/* <div>Total Value: 0</div> */}
         </Fragment>
     )
