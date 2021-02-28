@@ -94,7 +94,7 @@ const ProtectedRoute = () => {
                 <div className="profile-container-description" >
                     {!details ? 
                     <div className="profile-description">
-                        <small>click the image</small>
+                        <small>click image</small>
                         <img className="profile-img"
                          onClick={() => toggleDetails(!details)} src={guest ? guestPic : profile.picture} alt="pic"
                           />
