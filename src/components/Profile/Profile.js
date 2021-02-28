@@ -32,6 +32,7 @@ const ProtectedRoute = () => {
     const [details, toggleDetails] = useState(false)
     const profile = useSelector(profile => profile.auth_reducer.profile);   
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
+    const userDrinkAmount = useSelector(userDrinkAmount => userDrinkAmount.user_reducer.totalOfAllDrinks);
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -84,7 +85,7 @@ const ProtectedRoute = () => {
             };
        
             
-    }, [profile,dbUserId])//useEffect will re-render once there is a change
+    }, [profile,dbUserId,userDrinkAmount])//useEffect will re-render once there is a change
     // need to make seperate components "profile-container-description"
     // & need it to work for guest
     return (
