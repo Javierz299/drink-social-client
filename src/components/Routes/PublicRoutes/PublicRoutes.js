@@ -24,14 +24,13 @@ const PublicRoutes = () => {
     // also keeps logged out button as "log out" on refresh
     useEffect(() => {
             if(auth.isAuthenticated()){
-                console.log("PublicRoute Auth Profile")
                 dispatch({type: "LOGIN_SUCCESS"});
                 // redux takes some time to update state
                 // and dispatch is called imeditally so we need a small delay
                 auth.getProfile();
                 setTimeout(() => {
                     dispatch({type: "ADD_PROFILE", payload: auth.userProfile});
-                }, 700);// small delay to getProfile
+                }, 700);// small delay to getProfile, increased from 600ms to 700ms
             } else {
                 dispatch({type: "LOGIN_FAILURE"});
                 dispatch({type: "REMOVE_PROFILE"});
