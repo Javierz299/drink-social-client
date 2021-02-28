@@ -70,6 +70,12 @@ const AuthReducer = (state = initialState, action) => {
                     ...state,
                     guest_login: true,
                 }
+        case ACTION_TYPES.GUEST_LOGOUT:
+                console.log('GUEST LOGOUT')
+                return {
+                    ...state,
+                    guest_login: false,
+                }
         default:
             return state;
     }

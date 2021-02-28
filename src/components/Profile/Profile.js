@@ -51,7 +51,7 @@ const ProtectedRoute = () => {
                setTimeout(() => {
                 axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
                 .then((res) => dispatch({type: DB_USER_ID, payload: res.data.id}))
-               }, 400);//delay for initial post of new user and getting id. 
+               }, 600);//delay for initial post of new user and getting id. 
                         //need time to set new user in db before fetching id.
            }
 

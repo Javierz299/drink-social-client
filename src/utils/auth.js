@@ -30,7 +30,6 @@ class Auth {
         if(accessToken){
             this.auth0.client.userInfo(accessToken, (err, profile) => {
                 if(profile) {
-                    console.log("PROFILE")
                     this.userProfile = profile;
                 }
             })

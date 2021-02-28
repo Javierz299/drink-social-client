@@ -1,5 +1,5 @@
 import React from 'react';
-import { GUEST_LOGIN } from '../../store/actions/action_types';
+import { GUEST_LOGIN, GUEST_LOGOUT } from '../../store/actions/action_types';
 import { useSelector,useDispatch } from 'react-redux';
 
 import aboutPic from './aboutLaptop.jpg';
@@ -17,9 +17,14 @@ const WelcomePage = () => {
         <div id="welcome-page">
             <div className="banner">
                 <h1>Welcome to Drink Social</h1>
+                {guestLogin ? 
+                <button onClick={() => dispatch({type: GUEST_LOGOUT})}>
+                    Guest Logout
+                </button> :
                 <button onClick={() => dispatch({type: GUEST_LOGIN})}>
                     Guest Login
-                </button>  
+                </button>
+                  }
                 {guestLogin ? <h4>You now have access to the profile. No data will be saved. Login to have full access</h4> : null}
             </div>
             <section className="application-description">

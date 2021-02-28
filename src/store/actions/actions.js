@@ -76,11 +76,17 @@ export const guest_login = () => {
     return {
         type: ACTION_TYPES.GUEST_LOGIN,
     }
-}
+};
+
+export const guest_logout = () => {
+    return {
+        type: ACTION_TYPES.GUEST_LOGOUT,
+    }
+};
 
 export const guest_drink = (drink) => {
     return {
         type: ACTION_TYPES.GUEST_DRINK,
         payload: drink
     }
-}
+};
