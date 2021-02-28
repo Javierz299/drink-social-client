@@ -12,7 +12,7 @@ const LiquorForm = () => {
     const dbUserId = useSelector(id => id.auth_reducer.dbUserId);
     const userDrinkItem = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[0]);
     const userDrinkMessage = useSelector(userDrinkMessage => userDrinkMessage.user_reducer.drink_item[1]);
-    //const userDrinkAmount = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[2]);
+    const userDrinkAmount = useSelector(userDrinkAmount => userDrinkAmount.user_reducer.totalOfAllDrinks);
     const dispatch = useDispatch();
 
     const handlePostDrink = () => {
@@ -21,7 +21,7 @@ const LiquorForm = () => {
         
         dispatch({type: ACTION_TYPES.SUBMIT_BINGE_DRINK, payload: false})
         axios.patch(`${config.API_ENDPOINT}/patch/binge`,{dbUserId,userDrinkItem})
-        dispatch({type: ACTION_TYPES.TOTAL_OF_ALL_DRINKS, payload: +1})
+        dispatch({type: ACTION_TYPES.TOTAL_OF_ALL_DRINKS, payload: userDrinkAmount +1})
     }
 
     const handleDrink = () => {

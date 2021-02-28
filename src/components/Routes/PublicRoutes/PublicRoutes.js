@@ -30,19 +30,18 @@ const PublicRoutes = () => {
                 auth.getProfile();
                 setTimeout(() => {
                     dispatch({type: "ADD_PROFILE", payload: auth.userProfile});
-                }, 1000);
+                }, 600);// small delay to getProfile
             } else {
                 dispatch({type: "LOGIN_FAILURE"});
                 dispatch({type: "REMOVE_PROFILE"});
             }
 
-    }, []);
+    }, [profile]);
 
     return (
         <div>
             <MainNavButtons auth={auth} />
                 <Switch>
-                    {/*<Route exact path="/" render={() => <MainNavButtons auth={auth} /> } /> */}
                     <Route exact path="/" component={WelcomePage}/>
 
                     <Route path="/redirect" component={UnAuthRedirect} />

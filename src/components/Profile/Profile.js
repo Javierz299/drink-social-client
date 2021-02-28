@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import AuthCallBack from '../AuthCallBack/AuthCallBack';
 import { useSelector, useDispatch } from 'react-redux';
 
 import BeerCarousel from '../DrinkCarousels/BeerCarousel/BeerCarousel';
@@ -17,19 +16,21 @@ import { initialBingePost } from '../../LiquorStore/DrinkCarouselValues';
 import guestPic from '../../FormPicutres/beerpics/beer.png'
 import './profile.css';
 
+import Loading from '../Spinner/spinner';
+
 import axios from 'axios';
 import config from '../../config';
 
 import { addAllDrinks } from '../../utils/addAllDrinks/addAllDrinks'
 import { DB_USER_ID, GET_ALL_DRINK_VALUES, TOTAL_OF_ALL_DRINKS } from '../../store/actions/action_types';
+import DisplayName from '../DispalyName/DisplayName';
+import DrinkUpdate from '../DrinkUpdate/DrinkUpdate';
 
 const ProtectedRoute = () => {
     const guest = useSelector(guest => guest.user_reducer.guest_login)
     const [details, toggleDetails] = useState(false)
     const profile = useSelector(profile => profile.auth_reducer.profile);   
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
-    const combinedDrinks = useSelector(combinedDrinks => combinedDrinks.user_reducer.totalOfAllDrinks);
-    const lastDrinkItem = useSelector(lastDrinkItem => lastDrinkItem.user_reducer.lastDrinkItem);
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -51,7 +52,8 @@ const ProtectedRoute = () => {
                setTimeout(() => {
                 axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
                 .then((res) => dispatch({type: DB_USER_ID, payload: res.data.id}))
-               }, 600);//delay for initial post of new user and getting id. 
+               }, 1400);//**extended from 500ms to 1.4sec, to show loading screen**
+                        //delay for initial post of new user and getting id. 
                         //need time to set new user in db before fetching id.
            }
 
@@ -80,13 +82,15 @@ const ProtectedRoute = () => {
                 });
             };
        //console.log('profile',newProfile,dbUserId,allDrinks,combinedDrinks);
-       console.log('LAST DRINK ITEM',lastDrinkItem)
-    }, [profile,dbUserId,combinedDrinks])//useEffect will re-render once there is a change
+       //console.log('LAST DRINK ITEM',lastDrinkItem)
+
+       //               ,combinedDrinks
+    }, [profile,dbUserId])//useEffect will re-render once there is a change
     // need to make seperate components "profile-container-description"
     // & need it to work for guest
     return (
         <div id="profile-container" >
-            { !dbUserId && !guest ? <AuthCallBack /> :
+            { !dbUserId && !guest ? <Loading /> :
                 <div className="profile-container-description" >
                     {!details ? 
                     <div className="profile-description">
@@ -94,17 +98,8 @@ const ProtectedRoute = () => {
                         <img className="profile-img"
                          onClick={() => toggleDetails(!details)} src={guest ? guestPic : profile.picture} alt="pic"
                           />
-                        <h3>
-                            {guest ? "guest" :
-                            profile.name.substring(0,profile.name.indexOf("@")) ||
-                            profile.name
-                            }
-                        </h3>
-                        {/* <div>Friends: none</div> */}
-                        <div>Drinks: {combinedDrinks ? combinedDrinks : 0}</div>
-                        <div>last drink: {!lastDrinkItem ? localStorage.getItem("last") : lastDrinkItem}</div>
-                        <div>{!localStorage.getItem("post") ? "none" : localStorage.getItem("post").slice(0,21)}</div>
-                        {/* <div>Total Value: 0</div> */}
+                        <DisplayName />
+                        <DrinkUpdate />
                     </div> : 
                     <ProfileDetails toggleDetails={toggleDetails}/>
                     }

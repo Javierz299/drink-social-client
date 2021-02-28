@@ -13,7 +13,7 @@ const BeerForm = () => {
     const dbUserId = useSelector(id => id.auth_reducer.dbUserId);
     const userDrinkItem = useSelector(userDrinkItem => userDrinkItem.user_reducer.drink_item[0]);
     const userDrinkMessage = useSelector(userDrinkMessage => userDrinkMessage.user_reducer.drink_item[1]);
-    const userDrinkAmount = useSelector(userDrinkItem => userDrinkItem.user_reducer.totalOfAllDrinks);
+    const userDrinkAmount = useSelector(userDrinkAmount => userDrinkAmount.user_reducer.totalOfAllDrinks);
     const dispatch = useDispatch();
 
     const handlePostDrink = () => {
