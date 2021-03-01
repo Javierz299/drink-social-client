@@ -8,7 +8,6 @@ import CocktailCarousel from '../DrinkCarousels/CocktailCarousel/CocktailCarouse
 import BingeCarousel from '../DrinkCarousels/BingeCarousel/BingeCarousel';
 
 import ProfileDetails from '../ProfileDetails/ProfileDetails';
-import { IntialProfilePost } from '../InitialProfilePost/InitialProfilePost';
 
 import { initialBeerPost, initialCocktailPost } from '../../LiquorStore/DrinkCarouselValues';
 import { initialWinePost, initialLiquorPost } from '../../LiquorStore/DrinkCarouselValues';
