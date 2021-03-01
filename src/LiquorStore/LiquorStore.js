@@ -18,7 +18,7 @@ const liquorStore = {
     "17": ["bloody_mary","Bloody Mary, Bloody Mary, Bloody Mary",1],
     "18": ["mimosa", "Mimosa, take advantage of the bottomless",1],
     "19": ["martini", "Feeling like James Bond with that Martini?",2],
-    "20": ["mojito", "Moojjiittoo, rolls right of the tongue.",1],
+    "20": ["mojito", "Moojjiittoo, rolls right off the tongue.",1],
     "21": ["gin_and_tonic", "gin and tonic",1],
     "22": ["moscow_mule","moscow mule",1],
     "23": ["paloma","paloma",1],
