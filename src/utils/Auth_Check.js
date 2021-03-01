@@ -6,7 +6,7 @@ import * as ACTIONS from '../store/actions/actions'
 class Auth_Check extends Component {
 
     componentDidMount(){
-        console.log("AUTH_CHECK", this.props.auth)
+        //console.log("AUTH_CHECK", this.props.auth)
         if(this.props.auth.isAuthenticated){
             this.props.login_success();
             this.props.add_profile(this.props.auth.userProfile);

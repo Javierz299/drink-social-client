@@ -41,37 +41,31 @@ const AuthReducer = (state = initialState, action) => {
                 submit_binge_drink_form: action.payload,
             }
         case ACTION_TYPES.DRINK_ITEM:
-                console.log('USER_REDUCER drink item',action.payload)
                 return {
                     ...state,
                     drink_item: action.payload,
                 }
         case ACTION_TYPES.GET_ALL_DRINK_VALUES:
-                console.log('USER REDUCER ALL DRINKS',action.payload)
                 return {
                     ...state,
                     allDrinkValues: action.payload,
                 }
         case ACTION_TYPES.TOTAL_OF_ALL_DRINKS:
-                console.log('USER REDUCER DRINK TOTAL',action.payload)
                 return {
                     ...state,
                     totalOfAllDrinks: action.payload,
                 }
         case ACTION_TYPES.SET_LAST_DRINK_ITEM:
-                console.log('USER REDUCER LAST DRINK ITEM',action.payload)
                 return {
                     ...state,
                     lastDrinkItem: action.payload,
                 }
         case ACTION_TYPES.GUEST_LOGIN:
-                console.log('GUEST LOGIN')
                 return {
                     ...state,
                     guest_login: true,
                 }
         case ACTION_TYPES.GUEST_LOGOUT:
-                console.log('GUEST LOGOUT')
                 return {
                     ...state,
                     guest_login: false,

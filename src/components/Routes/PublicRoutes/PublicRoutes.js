@@ -18,7 +18,6 @@ const PublicRoutes = () => {
     const profile = useSelector(prof => prof.auth_reducer.prolife);
 
     const dispatch = useDispatch();
-    console.log('Route',profile);
 
     // silent authentication, runs every route change
     // also keeps logged out button as "log out" on refresh

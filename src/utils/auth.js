@@ -39,7 +39,7 @@ class Auth {
     handleAuth = () => {
         this.auth0.parseHash((err,authResult) => {
             if(authResult){
-                console.log("AUTHRESULT", authResult)
+                //console.log("AUTHRESULT", authResult)
                 localStorage.setItem('access_token', authResult.accessToken);
                 localStorage.setItem('id_token', authResult.idToken);
 
@@ -58,7 +58,7 @@ class Auth {
     };
 
     logout = () => {
-        console.log('LOG OUT: AUTH')
+        //console.log('LOG OUT: AUTH')
         localStorage.removeItem('access_token');
         localStorage.removeItem('id_token');
         localStorage.removeItem('expiresAt');
@@ -72,7 +72,6 @@ class Auth {
 
     // '/callback route => accesstoken after logging in
      handleAuthentication = (props) => {
-        console.log('props from public routes',props);
         if(props.location.hash){
             this.handleAuth();
         }

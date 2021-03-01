@@ -10,7 +10,6 @@ import { initialBingePost } from '../../LiquorStore/DrinkCarouselValues';
 const InitalProfilePost = () => {
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
 
-    console.log("else post initila values")
     const beerPost = axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
     const cocktailPost = axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
     const winePost = axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})

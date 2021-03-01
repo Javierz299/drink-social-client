@@ -5,9 +5,7 @@ import '../ProfileDetails/profileDetails.css'
 
 const ProfileDetails = ({toggleDetails}) => {
     const allDrinks = useSelector(allDrinks => allDrinks.user_reducer.allDrinkValues);
-    const guestDrinks = useSelector(guest => guest.guest_reducer.guestTable)
-    console.log("ALL DRINKS",allDrinks)
-    console.log("GUEST DRINKS",guestDrinks)
+    const guestDrinks = useSelector(guest => guest.guest_reducer.guestTable);
 
     return (
         <div className="drink-detail-container" 

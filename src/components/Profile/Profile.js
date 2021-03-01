@@ -40,9 +40,9 @@ const ProtectedRoute = () => {
         //once user goes to profile route we'll send it
         const newProfile = {};
         if(!profile){
-           return console.log("NO PROFILE YET")
+           return;// console.log("NO PROFILE YET")
         } else {
-            console.log('PROFILE READY')
+            //console.log('PROFILE READY')
             let tempName = profile.name.substring(0,profile.name.indexOf("@"));
             newProfile.name = tempName || profile.name;
             newProfile.email = profile.email;
@@ -67,7 +67,7 @@ const ProtectedRoute = () => {
                     // while fetching if we get back empty obj, means first time signed up
                     // no initial values
                     if(JSON.stringify(res.data) === "{}"){
-                        console.log("else post initila values")
+                        //console.log("else post initila values")
                         const beerPost = axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
                         const cocktailPost = axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
                         const winePost = axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
@@ -76,7 +76,6 @@ const ProtectedRoute = () => {
                         return axios.all([beerPost,cocktailPost,winePost,liquorPost,bingePost])
                     } else {
                         //else if we get back data, store in state
-                        console.log("else")
                         dispatch({type: GET_ALL_DRINK_VALUES, payload: res.data})
                         const totalDrinks = addAllDrinks(res.data)
                         dispatch({type: TOTAL_OF_ALL_DRINKS, payload: totalDrinks})

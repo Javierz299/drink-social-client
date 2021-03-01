@@ -49,7 +49,6 @@ const initialState = {
 const GuestReducer = (state = initialState, action) => {
     switch(action.type){
         case ACTION_TYPES.GUEST_DRINK:
-            console.log("GUEST REDUCER",action.payload)
             return {
                 ...state,
                 guestTable: 0,
