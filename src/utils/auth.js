@@ -50,7 +50,7 @@ class Auth {
                 //loading after logging in correctly
                 setTimeout(() => {
                     history.replace('/authcheck')
-                }, 1000);
+                }, 700);
             } else {
                 console.log("handleAuth Err",err);
             }
@@ -62,6 +62,14 @@ class Auth {
         localStorage.removeItem('access_token');
         localStorage.removeItem('id_token');
         localStorage.removeItem('expiresAt');
+
+        this.idToken = null
+        this.profile = null
+        this.expiresAt = null
+        this.auth0.logout({//http://localhost:3000'https://beerme-social.vercel.app'
+        returnTo: 'https://drink-social-zapien120.vercel.app/callback',
+        clientID: 'whwkSL7cwzB4fskmSWSwwo43aVIFupY4',
+    })
         
     };
 
