@@ -5,7 +5,7 @@ class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'dev-u9j3svni.auth0.com',
         clientID: 'whwkSL7cwzB4fskmSWSwwo43aVIFupY4',
-        redirectUri: "http://localhost:3000/callback",
+        redirectUri: "https://drink-social-zapien120.vercel.app/callback" || "http://localhost:3000/callback",
         responseType: 'token id_token',
         scope: 'openid profile email'
     });
