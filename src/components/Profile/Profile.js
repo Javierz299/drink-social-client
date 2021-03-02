@@ -63,6 +63,7 @@ const ProtectedRoute = () => {
                 //get all drinks from user if any, if not post initial values for all
                 axios.get(`${config.API_ENDPOINT}/get/allDrinks/${dbUserId}`)
                 .then(res => {
+                    console.log("result",res.data)
                     // while fetching if we get back empty obj, means first time signed up
                     // no initial values
                     if(JSON.stringify(res.data) === "{}"){
