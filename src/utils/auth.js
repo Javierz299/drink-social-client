@@ -50,7 +50,7 @@ class Auth {
                 //loading after logging in correctly
                 setTimeout(() => {
                     history.replace('/authcheck')
-                }, 700);
+                }, 900);
             } else {
                 console.log("handleAuth Err",err);
             }

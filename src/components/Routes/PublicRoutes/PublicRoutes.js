@@ -29,7 +29,7 @@ const PublicRoutes = () => {
                 auth.getProfile();
                 setTimeout(() => {
                     dispatch({type: "ADD_PROFILE", payload: auth.userProfile});
-                }, 700);// small delay to getProfile, increased from 600ms to 700ms
+                }, 900);// small delay to getProfile, increased from 600ms to 700ms
             } else {
                 dispatch({type: "LOGIN_FAILURE"});
                 dispatch({type: "REMOVE_PROFILE"});

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const DrinkUpdate = () => {
     const combinedDrinks = useSelector(combinedDrinks => combinedDrinks.user_reducer.totalOfAllDrinks);
     const lastDrinkItem = useSelector(lastDrinkItem => lastDrinkItem.user_reducer.lastDrinkItem);
-
+console.log("total drinks",combinedDrinks)
     return (
         <Fragment>
         {/* <div>Friends: none</div> */}
