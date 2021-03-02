@@ -67,7 +67,7 @@ class Auth {
         this.profile = null
         this.expiresAt = null
         this.auth0.logout({//http://localhost:3000'https://beerme-social.vercel.app'
-        returnTo: 'https://drink-social-zapien120.vercel.app/callback',
+        returnTo: 'https://drink-social-zapien120.vercel.app/',
         clientID: 'whwkSL7cwzB4fskmSWSwwo43aVIFupY4',
     })
         
