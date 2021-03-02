@@ -63,14 +63,14 @@ class Auth {
         localStorage.removeItem('id_token');
         localStorage.removeItem('expiresAt');
 
-        this.idToken = null
-        this.profile = null
-        this.expiresAt = null
-        this.auth0.logout({//http://localhost:3000'https://beerme-social.vercel.app'
-        returnTo: 'https://drink-social-zapien120.vercel.app/',
-        clientID: 'whwkSL7cwzB4fskmSWSwwo43aVIFupY4',
-    })
-        
+    //     this.idToken = null
+    //     this.profile = null
+    //     this.expiresAt = null
+    //     this.auth0.logout({
+    //     returnTo: 'https://drink-social-zapien120.vercel.app/',
+    //     clientID: 'whwkSL7cwzB4fskmSWSwwo43aVIFupY4',
+    // })
+        //http://localhost:3000'https://beerme-social.vercel.app'
     };
 
     isAuthenticated = () => {
