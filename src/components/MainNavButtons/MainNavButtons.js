@@ -37,7 +37,7 @@ const MainNavButtons = (props) => {
                     <Link className="nav-link" to="/">
                         <span>Home</span>
                     </Link>
-                    <Link className="nav-link" to="/stats">
+                    <Link className="nav-link" to="/public">
                     <span>Public</span>
                     </Link>
                     <Link className="nav-link" to="/profile">
