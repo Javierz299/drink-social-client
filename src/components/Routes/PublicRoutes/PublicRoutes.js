@@ -9,6 +9,8 @@ import PrivateRoute from '../PrivateRoute';
 import ProtectedRoute from '../../Profile/Profile';
 import WelcomePage from '../../WelcomPage/WelcomePage';
 
+import UnderConstruction from '../../Spinner/construction';
+
 import { useSelector, useDispatch } from 'react-redux';
 
 const auth = new Auth();
@@ -46,6 +48,8 @@ const PublicRoutes = () => {
                     <Route path="/redirect" component={UnAuthRedirect} />
                     <Route path="/callback" render={(props) => {auth.handleAuthentication(props); return <AuthCallBack props={props} />}} />
                     <Route path="/authcheck" render={() => <AuthCheck auth={auth} />} />
+
+                    <Route path="/public" render={() => <UnderConstruction />} />
                 
                     <PrivateRoute path="/profile" component={ProtectedRoute} auth={auth} guest={guestLogin}/>
                 </Switch>
