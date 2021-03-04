@@ -8,7 +8,7 @@ export default styled.div`
   height 100px;
   background: orange;
   border-radius: 50%;
-  color: black;
+  color: #fcd972;
   margin: 0 5px;
   font-size: 4em;
 `;
