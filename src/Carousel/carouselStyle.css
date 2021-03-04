@@ -35,7 +35,7 @@ button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus{
     letter-spacing: 3px;
     border-radius: 50%;
     background: radial-gradient(ellipse at center, #000000 0%, #fcd972 100%);
-    background: linear-gradient( #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#ffecb3 90%); 
+    background: linear-gradient( #fcd972 22%,#fcd972 24%, #fcd972 26%, #fcd972 27%,#fcd972 40%,#fcd972 90%); 
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: #fcd972;
