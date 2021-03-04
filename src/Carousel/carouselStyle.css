@@ -34,7 +34,7 @@ button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus{
     height: 125px;
     letter-spacing: 3px;
     border: 1px solid #fcd972;
-    box-shadow: 8px 3px 3px white;
+    box-shadow: 2px 1px 1px  #ffd559;
     border-radius: 50%;
     background: radial-gradient(ellipse at center, #000000 0%, #fcd972 100%);
     background: linear-gradient( #fcd972 22%,#fcd972 24%, #fcd972 26%, #fcd972 27%,#fcd972 40%,#fcd972 90%); 
