@@ -16,8 +16,7 @@ const Loading = () => {
         return (
             <div>
                 <Lottie options={defaultOptions} height={100} width={100}/>
-                <p>If profile takes longer than a few seconds to load.</p>
-                <p>Try, Logout and Log back in.</p>
+                <p>Loading your drinks please wait.</p>
             </div>
         )
 

@@ -100,7 +100,7 @@ const Beer = () => {
                 </Card>
                 </div>
                 <div>
-                <h3>SELTZER(TALL)r</h3>
+                <h3>SELTZER(TALL)</h3>
                 <Card>        
                 <button id="9" onClick={(e) => sendDrinkItem(e)}
                         className="card-button">
