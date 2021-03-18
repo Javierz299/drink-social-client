@@ -7,7 +7,7 @@ const PublicGraph = () => {
 
     useEffect(() => {
         axios.get(`${config.API_ENDPOINT}/get/cumulativeDrinks`)
-            .then((result) => console.log("all drinks",result))
+            .then((result) => console.log("all drinks",result.data))
        
     }, [])
     return (
