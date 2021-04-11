@@ -33,6 +33,7 @@ const MainNavButtons = (props) => {
                  onMouseLeave={() => setToggle(!toggle)}
                  className="main-nav-menu">
                     Menu
+            </div>
                 <div className={toggle ? "main-nav-show" : "main-nav-hide"}>
                     <Link className="nav-link" to="/">
                         <span>Home</span>
@@ -48,7 +49,7 @@ const MainNavButtons = (props) => {
                     <span className="log_in_out" onClick={() => props.auth.login()} >Log In</span>
                     }
                 </div>
-            </div>
+            
         </div>
     )
 }
