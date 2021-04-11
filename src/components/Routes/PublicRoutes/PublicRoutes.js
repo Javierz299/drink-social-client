@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Route, Switch } from 'react-router';
 import MainNavButtons from '../../MainNavButtons/MainNavButtons';
 
@@ -43,7 +43,7 @@ const PublicRoutes = () => {
     }, [profile]);
 
     return (
-        <div>
+        <Fragment>
             <MainNavButtons auth={auth} />
                 <Switch>
                     <Route exact path="/" component={WelcomePage}/>
@@ -56,7 +56,7 @@ const PublicRoutes = () => {
                 
                     <PrivateRoute path="/profile" component={ProtectedRoute} auth={auth} guest={guestLogin}/>
                 </Switch>
-        </div>
+        </Fragment>
     )
 }
 
