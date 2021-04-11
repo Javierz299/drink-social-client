@@ -29,18 +29,17 @@ const MainNavButtons = (props) => {
                 onClick={() => props.auth.login()} >Log In</span>
                 }
             </div>
-            <div onMouseEnter={() => setToggle(!toggle)}
-                 onMouseLeave={() => setToggle(!toggle)}
+            <div onClick={() => setToggle(!toggle)}
                  className="main-nav-menu">
                     Menu
                 <div className={toggle ? "main-nav-show" : "main-nav-hide"}>
-                    <Link onClick={() => console.log("link clicked")} className="nav-link" to="/">
+                    <Link onClick={() => setToggle(!toggle)} className="nav-link" to="/">
                         <span>Home</span>
                     </Link>
-                    <Link onClick={() => console.log("link clicked")} className="nav-link" to="/public">
+                    <Link onClick={() => setToggle(!toggle)} className="nav-link" to="/public">
                     <span>Public</span>
                     </Link>
-                    <Link onClick={() => console.log("link clicked")} className="nav-link" to="/profile">
+                    <Link onClick={() => setToggle(!toggle)} className="nav-link" to="/profile">
                     <span>Profile</span>
                     </Link>
                     {isAuthenticated ? 
