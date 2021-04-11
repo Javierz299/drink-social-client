@@ -41,7 +41,7 @@
     }
     .main-nav-menu{
         padding: 5px;
-        display: block;
+        /* display: block; */
         align-content: end;
         width: 50px;
         border: 1px solid black; 
