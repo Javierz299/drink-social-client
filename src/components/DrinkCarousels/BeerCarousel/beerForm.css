@@ -18,6 +18,8 @@ button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus{
 }
 
 .carousel-container{
+    position: relative;
+    z-index: 9;
     margin: 10px 5px;
 }
 
