@@ -34,13 +34,13 @@ const MainNavButtons = (props) => {
                  className="main-nav-menu">
                     Menu
                 <div className={toggle ? "main-nav-show" : "main-nav-hide"}>
-                    <Link className="nav-link" to="/">
+                    <Link onClick={() => console.log("link clicked")} className="nav-link" to="/">
                         <span>Home</span>
                     </Link>
-                    <Link className="nav-link" to="/public">
+                    <Link onClick={() => console.log("link clicked")} className="nav-link" to="/public">
                     <span>Public</span>
                     </Link>
-                    <Link className="nav-link" to="/profile">
+                    <Link onClick={() => console.log("link clicked")} className="nav-link" to="/profile">
                     <span>Profile</span>
                     </Link>
                     {isAuthenticated ? 
