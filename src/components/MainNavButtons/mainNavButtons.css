@@ -3,11 +3,12 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-#main-nav-container{
+/* #main-nav-container{
     position: relative;
-}
+} */
 
 .main-nav-menu{
+    position: relative;
     display: none;
 }
 
