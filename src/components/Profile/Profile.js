@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import BeerCarousel from '../DrinkCarousels/BeerCarousel/BeerCarousel';
@@ -13,7 +14,7 @@ import { initialBeerPost, initialCocktailPost } from '../../LiquorStore/DrinkCar
 import { initialWinePost, initialLiquorPost } from '../../LiquorStore/DrinkCarouselValues';
 import { initialBingePost } from '../../LiquorStore/DrinkCarouselValues';
 
-import guestPic from '../../FormPicutres/beerpics/beer.png'
+import guestPic from '../../FormPicutres/beerpics/beer.png';
 import './profile.css';
 
 import Loading from '../Spinner/spinner';
@@ -21,8 +22,9 @@ import Loading from '../Spinner/spinner';
 import axios from 'axios';
 import config from '../../config';
 
-import { addAllDrinks } from '../../utils/addAllDrinks/addAllDrinks'
+import { addAllDrinks } from '../../utils/addAllDrinks/addAllDrinks';
 import { DB_USER_ID, GET_ALL_DRINK_VALUES, TOTAL_OF_ALL_DRINKS } from '../../store/actions/action_types';
+
 import DisplayName from '../DispalyName/DisplayName';
 import DrinkUpdate from '../DrinkUpdate/DrinkUpdate';
 
@@ -92,6 +94,9 @@ const ProtectedRoute = () => {
                 <div className="profile-container-description" >
                     {!details ? 
                     <div className="profile-description">
+                        <div>
+                            <Link to="/friends" >Friends</Link>
+                        </div>
                         <small>click image</small>
                         <img className="profile-img"
                          onClick={() => toggleDetails(!details)} src={guest ? guestPic : profile.picture} alt="pic"

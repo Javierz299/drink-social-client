@@ -9,6 +9,7 @@ import UnAuthRedirect from '../../../utils/UnAuthRedirect';
 import PrivateRoute from '../PrivateRoute';
 
 import ProtectedRoute from '../../Profile/Profile';
+import Friend from '../../Friend/Friend';
 import WelcomePage from '../../WelcomPage/WelcomePage';
 import PublicGraph from '../../PublicGraph/PublicGraph';
 
@@ -53,6 +54,8 @@ const PublicRoutes = () => {
                     <Route path="/authcheck" render={() => <AuthCheck auth={auth} />} />
 
                     <Route path="/public" render={() => <PublicGraph />} />
+
+                    <Route path="/friends"  component={Friend}/>
                 
                     <PrivateRoute path="/profile" component={ProtectedRoute} auth={auth} guest={guestLogin}/>
                 </Switch>
