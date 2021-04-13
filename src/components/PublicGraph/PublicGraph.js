@@ -6,6 +6,7 @@ import config from '../../config';
 
 const PublicGraph = () => {
     const [drink, setDrink] = useState(0)
+    //make conditional for max yaxix tick
     const state = {
         labels: ['Beer', 'Cocktail', 'Wine',
                  'Liquor', 'Other'],
@@ -55,7 +56,34 @@ const PublicGraph = () => {
             legend:{
               display:false,
               position:'right'
-            }
+            },
+            scales: {
+              xAxes: [{
+                  display: true,
+                  scaleLabel: {
+                      fontColor:'#000000',
+                      fontSize:10
+                  },
+                  ticks: {
+                     fontColor: "black",
+                     fontSize: 14
+                    }
+              }],
+              yAxes: [{
+                  display: true,
+                  scaleLabel: {
+                      fontColor: '#000000',
+                      fontSize:10
+                  },
+                  ticks: {
+                    precision: 0,
+                    fontColor: "black",
+                    fontSize: 10,
+                    min: 0,
+                    max: 10
+                  }
+              }]
+       }
           }}
         />
         </div>
