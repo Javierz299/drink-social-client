@@ -5,7 +5,7 @@ import UserList from '../UserList/UserList';
 import axios from 'axios';
 import config from '../../config';
 
-const Friend = () => {
+const SearchFriends = () => {
     const [users, setUsers] = useState("")
 
     const handleFriendSearch = (e) => {
@@ -31,4 +31,4 @@ const Friend = () => {
     )
 }
 
-export default Friend
+export default SearchFriends;

@@ -54,26 +54,26 @@ const ProtectedRoute = () => {
            if(profile){
                setTimeout(() => {
                 axios.get(`${config.API_ENDPOINT}/get/userid/${newProfile.email}`)
-                .then((res) => dispatch({type: DB_USER_ID, payload: res.data.id}))
+                .then((res) => dispatch({type: DB_USER_ID, payload: res.data}))
                }, 900); //delay for initial post of new user and getting id. 
                         //need time to set new user in db before fetching id.
            }
 
         //we wait to get user id to make our initial post for user
-        if(dbUserId){
+        if(dbUserId.id){
                 //get all drinks from user if any, if not post initial values for all
-                axios.get(`${config.API_ENDPOINT}/get/allDrinks/${dbUserId}`)
+                axios.get(`${config.API_ENDPOINT}/get/allDrinks/${dbUserId.id}`)
                 .then(res => {
                     console.log("result",res.data)
                     // while fetching if we get back empty obj, means first time signed up
                     // no initial values
                     if(JSON.stringify(res.data) === "{}"){
                         //console.log("else post initila values")
-                        const beerPost = axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId, ...initialBeerPost})
-                        const cocktailPost = axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId, ...initialCocktailPost})
-                        const winePost = axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId, ...initialWinePost})
-                        const liquorPost = axios.post(`${config.API_ENDPOINT}/post/userLiquorItem`,{ user_id: dbUserId, ...initialLiquorPost})
-                        const bingePost = axios.post(`${config.API_ENDPOINT}/post/userBingeItem`,{ user_id: dbUserId, ...initialBingePost})
+                        const beerPost = axios.post(`${config.API_ENDPOINT}/post/userBeerItem`,{ user_id: dbUserId.id, ...initialBeerPost})
+                        const cocktailPost = axios.post(`${config.API_ENDPOINT}/post/userCocktailItem`,{ user_id: dbUserId.id, ...initialCocktailPost})
+                        const winePost = axios.post(`${config.API_ENDPOINT}/post/userWineItem`,{ user_id: dbUserId.id, ...initialWinePost})
+                        const liquorPost = axios.post(`${config.API_ENDPOINT}/post/userLiquorItem`,{ user_id: dbUserId.id, ...initialLiquorPost})
+                        const bingePost = axios.post(`${config.API_ENDPOINT}/post/userBingeItem`,{ user_id: dbUserId.id, ...initialBingePost})
                         return axios.all([beerPost,cocktailPost,winePost,liquorPost,bingePost])
                     } else {
                         //else if we get back data, store in state
@@ -84,17 +84,17 @@ const ProtectedRoute = () => {
                 });
             };
        
-            
-    }, [profile,dbUserId,userDrinkAmount])//useEffect will re-render once there is a change
+            console.log("profile useEffect userDrinkAmount",dbUserId.id)
+    }, [profile,dbUserId.id,userDrinkAmount])//useEffect will re-render once there is a change
     
     return (
         <div id="profile-container" >
-            { !dbUserId && !guest ? <Loading /> :
+            { !dbUserId.id && !guest ? <Loading /> :
                 <div className="profile-container-description" >
                     {!details ? 
                     <div className="profile-description">
                         <div>
-                            <Link to="/friends" >Friends</Link>
+                            <Link to="/search" >Search</Link>
                         </div>
                         <small>click image</small>
                         <img className="profile-img"
