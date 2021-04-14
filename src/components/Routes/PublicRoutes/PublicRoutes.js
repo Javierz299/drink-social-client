@@ -10,6 +10,9 @@ import PrivateRoute from '../PrivateRoute';
 
 import ProtectedRoute from '../../Profile/Profile';
 import SearchFriends from '../../SearchFriends/SearchFriends';
+import FriendsList from '../../FriendsList/FriendsList';
+import PendingRequest from '../../PendingRequest/PendingRequest';
+
 import WelcomePage from '../../WelcomPage/WelcomePage';
 import PublicGraph from '../../PublicGraph/PublicGraph';
 
@@ -59,7 +62,9 @@ const PublicRoutes = () => {
 
                     <Route path="/public" render={() => <PublicGraph />} />
 
-                    <Route path="/search"  component={SearchFriends}/>
+                    <PrivateRoute path="/search"  component={SearchFriends} auth={auth} guest={guestLogin} />
+                    <PrivateRoute path="/friends" component={FriendsList} auth={auth} guest={guestLogin} />
+                    <PrivateRoute path="/pending" component={PendingRequest} auth={auth} guest={guestLogin} />
                 
                     <PrivateRoute path="/profile" component={ProtectedRoute} auth={auth} guest={guestLogin}/>
                 </Switch>

@@ -94,6 +94,7 @@ const ProtectedRoute = () => {
                     {!details ? 
                     <div className="profile-description">
                         <div>
+                            <Link to="/friends" >Friends</Link>
                             <Link to="/search" >Search</Link>
                         </div>
                         <small>click image</small>
