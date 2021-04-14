@@ -12,8 +12,8 @@ const PendingRequest = () => {
             <Link to="/friends">friends</Link>
             <Link to="/profile">Profile</Link>
             <div>
-                {console.log('pendingRequests',pendingRequests)}
-               {pendingRequests.length && pendingRequests.map((pending,i) => (
+                {pendingRequests.length < 1 && <h3>no pending requests</h3>}
+               {pendingRequests.map((pending,i) => (
                    //if user declines delete request from db
                    <li key={i} >{pending.user} <button onClick={() => console.log("add", pending.user)}>add</button><button>decline</button></li>
                ))}
