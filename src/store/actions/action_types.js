@@ -33,3 +33,5 @@ export const GUEST_LOGIN = "GUEST_LOGIN";
 export const GUEST_LOGOUT = "GUEST_LOGOUT";
 
 export const GUEST_DRINK = "GUEST_DRINK";
+
+export const PENDING_REQUESTS = "PENDING_REQUESTS";

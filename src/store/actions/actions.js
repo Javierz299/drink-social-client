@@ -90,3 +90,10 @@ export const guest_drink = (drink) => {
         payload: drink
     }
 };
+
+export const pending_requests = (pending) => {
+    return {
+        type: ACTION_TYPES.PENDING_REQUESTS,
+        payload: pending
+    }
+};
