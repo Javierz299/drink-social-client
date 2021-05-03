@@ -24,9 +24,9 @@ const PendingRequest = () => {
     };
 
     const declineFriendRequest = (declineUser) => {
-        //console.log("adduser",addUser)
-        // axios.patch(`${config.API_ENDPOINT}/add/friend`,addUser)
-        //     .then(res => console.log("patch result",res))
+        console.log("decline user",declineUser)
+        axios.delete(`${config.API_ENDPOINT}/delete/friend`,{data: declineUser})
+            .then(res => console.log("delete result",res))
         
         const filterdRequest = pendingRequests.filter((user) => user.user !== declineUser.user);
         dispatch({type: PENDING_REQUESTS, payload: filterdRequest})

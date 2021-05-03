@@ -97,10 +97,3 @@ export const pending_requests = (pending) => {
         payload: pending
     }
 };
-
-export const filter_pending_requests = (filterUser) => {
-    return {
-        type: ACTION_TYPES.FILTER_PENDING_REQUESTS,
-        payload: filterUser
-    }
-}
