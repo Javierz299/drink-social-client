@@ -23,6 +23,15 @@ const PendingRequest = () => {
         dispatch({type: PENDING_REQUESTS, payload: filterdRequest})
     };
 
+    const declineFriendRequest = (declineUser) => {
+        //console.log("adduser",addUser)
+        // axios.patch(`${config.API_ENDPOINT}/add/friend`,addUser)
+        //     .then(res => console.log("patch result",res))
+        
+        const filterdRequest = pendingRequests.filter((user) => user.user !== declineUser.user);
+        dispatch({type: PENDING_REQUESTS, payload: filterdRequest})
+    };
+
     console.log("pending Requests",pendingRequests);
     return (
         <div>
@@ -30,11 +39,11 @@ const PendingRequest = () => {
             <Link to="/profile">Profile</Link>
             <div>
                 {!pendingRequests.length  && <h3>no pending requests</h3>}
-                { JSON.stringify(pendingRequests) !== "{}" && pendingRequests.map((pending,i) => (// error when empty; {}
+                { JSON.stringify(pendingRequests) !== "{}" && pendingRequests.map((pending,i) => (
                    //if user declines delete request from db
                    <li key={i} >{pending.user} 
                         <button onClick={() => addFriendRequest(pending)}>add</button>
-                        <button>decline</button>
+                        <button onClick={() => declineFriendRequest(pending)}>decline</button>
                     </li>
                ))}
             </div>
