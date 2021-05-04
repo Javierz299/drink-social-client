@@ -17,7 +17,7 @@ const PendingRequest = () => {
         axios.patch(`${config.API_ENDPOINT}/add/friend`,addUser)
             .then(res => console.log("patch result",res))
         
-        alert(`Request sent to ${addUser.user}`);
+        alert(`You and ${addUser.user} are now drinking buddies.`);
 
         const filterdRequest = pendingRequests.filter((user) => user.user !== addUser.user);
         dispatch({type: PENDING_REQUESTS, payload: filterdRequest})

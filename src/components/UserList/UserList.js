@@ -10,11 +10,13 @@ const UserList = ({users}) => {
     const { id, username } = dbUserId
     console.log("users",users)
     console.log('profile',id,username)
+
    const sendFriendRequest = (addUser) => {
         console.log("adduser",addUser)
-    axios.post(`${config.API_ENDPOINT}/post/friend/request`,{id, username, addUser})
-        .then(res => console.log('friend request',res.data))
+        axios.post(`${config.API_ENDPOINT}/post/friend/request`,{id, username, addUser})
+            .then(res => console.log('friend request',res.data))
 
+        alert(`Friend request sent to ${addUser.username}`)
     }   
 
 

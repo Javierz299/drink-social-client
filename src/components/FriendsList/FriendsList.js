@@ -11,8 +11,6 @@ const FriendsList = () => {
     const dispatch = useDispatch();
     const dbUserId = useSelector(dbUserId => dbUserId.auth_reducer.dbUserId);
     const friendsList = useSelector(friend => friend.friend_reducer.friends_list);
-    //fetch friends
-    //fetch pending
 
     useEffect(() => {
         console.log('dbUserId',dbUserId)
@@ -32,7 +30,9 @@ const FriendsList = () => {
             </div>
                 friends list
                 {!friendsList ? console.log("no friends yet") :
-                console.log('FRIENDS',friendsList)
+                    friendsList.map(friend => (
+                        <li key={friend.id}>{friend.username}</li>
+                    ))
                 }
         </div>
     )
