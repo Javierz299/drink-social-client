@@ -97,3 +97,10 @@ export const pending_requests = (pending) => {
         payload: pending
     }
 };
+
+export const get_friends = (friends) => {
+    return {
+        type: ACTION_TYPES.GET_FRIENDS,
+        payload: friends
+    }
+}
