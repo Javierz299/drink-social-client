@@ -21,6 +21,10 @@ const FriendsList = () => {
             .then(res => dispatch({type: GET_FRIENDS, payload: res.data}));
     },[])
 
+    const fetchFriendsData = (id) => {
+        console.log('fetch friends data', id)
+    }
+
     return (
         <div>
             <div>
@@ -28,10 +32,16 @@ const FriendsList = () => {
                 <Link to="/pending">Pending</Link>
                 <Link to="/profile">Profile</Link>
             </div>
-                friends list
-                {!friendsList ? console.log("no friends yet") :
+            {/*click on buddy and fetch all data*/}
+            {/*can also making a "standings" route in friends to see totals*/}
+                Drinking Buddies
+                {!friendsList ? <h4>no drinking buddies</h4> :
                     friendsList.map(friend => (
-                        <li key={friend.id}>{friend.username}</li>
+                        <li
+                        onClick={() => fetchFriendsData(friend.id)}
+                        key={friend.id}>
+                        {friend.username}
+                         </li>
                     ))
                 }
         </div>
